@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
-public class CarTest {
+class CarTest {
 
     @Test
     @DisplayName("Car의 이름이 5자가 넘으면 Exception이 발생한다.")
@@ -22,6 +22,4 @@ public class CarTest {
         assertThat(car.move(3)).isEqualTo(0);
         assertThat(car.move(4)).isEqualTo(1);
     }
-
-
 }
