@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -8,6 +9,10 @@ public class RoundResult {
 
     public RoundResult(List<MovedCar> movedCars) {
         this.movedCars = movedCars;
+    }
+
+    public List<MovedCar> getMovedCars() {
+        return Collections.unmodifiableList(movedCars);
     }
 
     @Override

@@ -30,4 +30,8 @@ public class Cars {
     public Car getCar(int index) {
         return cars.get(index);
     }
+
+    public int count() {
+        return cars.size();
+    }
 }
