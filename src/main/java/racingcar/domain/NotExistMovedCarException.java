@@ -1,7 +1,7 @@
 package racingcar.domain;
 
 public class NotExistMovedCarException extends RuntimeException {
-    private static final String ERROR_MESSAGE = "멀리 못갔습니다.";
+    private static final String ERROR_MESSAGE = "경주한 차가 존재하지 않습니다.";
 
     public NotExistMovedCarException() {
         super(ERROR_MESSAGE);
