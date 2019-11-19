@@ -21,7 +21,7 @@ class RacingGameTest {
                 new Car("b", 3),
                 new Car("c", 5))
         );
-        racingGame = new RacingGame(cars);
+        racingGame = new RacingGame(cars, 0);
 
         GameResult expected = new GameResult(Arrays.asList(
                 new MovedCar("a", 1),
@@ -41,10 +41,10 @@ class RacingGameTest {
                 new Car("b"),
                 new Car("c"))
         );
-        racingGame = new RacingGame(cars);
-
         int numberOfRound = 5;
-        RoundResults roundResults = racingGame.startGame(numberOfRound);
+        racingGame = new RacingGame(cars, numberOfRound);
+
+        RoundResults roundResults = racingGame.startGame();
         List<MovedCar> finalRoundResult = roundResults.get(numberOfRound - 1).getMovedCars();
         GameResult gameResult = racingGame.generateGameResult();
 

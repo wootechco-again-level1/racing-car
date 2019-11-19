@@ -8,12 +8,14 @@ import java.util.stream.IntStream;
 
 public class RacingGame {
     private final Cars cars;
+    private final int numberOfRound;
 
-    public RacingGame(Cars cars) {
+    public RacingGame(Cars cars, int numberOfRound) {
         this.cars = cars;
+        this.numberOfRound = numberOfRound;
     }
 
-    public RoundResults startGame(int numberOfRound) {
+    public RoundResults startGame() {
         List<RoundResult> roundResults = IntStream.rangeClosed(1, numberOfRound)
                 .mapToObj(i -> cars.round(MovableGenerator.generate(cars)))
                 .collect(Collectors.toList());

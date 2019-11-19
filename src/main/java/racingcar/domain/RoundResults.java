@@ -12,4 +12,8 @@ public class RoundResults {
     public RoundResult get(int index) {
         return roundResults.get(index);
     }
+
+    public List<RoundResult> getAllRoundResult() {
+        return roundResults;
+    }
 }
