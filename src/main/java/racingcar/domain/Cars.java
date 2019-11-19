@@ -11,7 +11,7 @@ public class Cars {
         this.cars = cars;
     }
 
-    public RoundResult round(List<Integer> movable) {
+    RoundResult round(List<Integer> movable) {
         List<MovedCar> movedCars = new ArrayList<>();
 
         for (int i = 0; i < numberOfCars(); i++) {
@@ -23,7 +23,7 @@ public class Cars {
         return new RoundResult(movedCars);
     }
 
-    public List<Car> getAllCars() {
+    List<Car> getAllCars() {
         return Collections.unmodifiableList(cars);
     }
 

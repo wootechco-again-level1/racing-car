@@ -7,7 +7,7 @@ import java.util.Objects;
 public class RoundResult {
     private final List<MovedCar> movedCars;
 
-    public RoundResult(List<MovedCar> movedCars) {
+    RoundResult(List<MovedCar> movedCars) {
         this.movedCars = movedCars;
     }
 

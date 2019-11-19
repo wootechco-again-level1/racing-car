@@ -1,4 +1,4 @@
-package racingcar.view;
+package racingcar.view.exception;
 
 public class NegativeRoundsException extends RuntimeException {
     private static final String ERROR_MESSAGE = "음수인 라운드 횟수는 허용되지 않습니다.";

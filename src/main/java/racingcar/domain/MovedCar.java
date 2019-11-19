@@ -6,16 +6,16 @@ public class MovedCar {
     private final String name;
     private final int distance;
 
-    public MovedCar(Car car) {
+    MovedCar(Car car) {
         this(car.getName(), car.getDistance());
     }
 
-    public MovedCar(String name, int distance) {
+    MovedCar(String name, int distance) {
         this.name = name;
         this.distance = distance;
     }
 
-    public boolean isWinner(int maxDistance) {
+    boolean isWinner(int maxDistance) {
         return distance == maxDistance;
     }
 

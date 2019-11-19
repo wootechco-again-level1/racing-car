@@ -3,6 +3,7 @@ package racingcar.domain;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import racingcar.domain.exception.NotExistMovedCarException;
 
 import java.util.Arrays;
 import java.util.List;

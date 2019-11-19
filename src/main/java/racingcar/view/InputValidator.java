@@ -1,5 +1,7 @@
 package racingcar.view;
 
+import racingcar.view.exception.NegativeRoundsException;
+
 import java.util.regex.Pattern;
 
 class InputValidator {

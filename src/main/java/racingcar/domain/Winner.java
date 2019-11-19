@@ -7,7 +7,7 @@ import java.util.Objects;
 public class Winner {
     private final List<MovedCar> winners;
 
-    public Winner(List<MovedCar> winners) {
+    Winner(List<MovedCar> winners) {
         this.winners = winners;
     }
 

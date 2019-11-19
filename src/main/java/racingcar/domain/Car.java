@@ -12,14 +12,14 @@ public class Car {
         this(name, 0);
     }
 
-    public Car(String name, int distance) {
+    Car(String name, int distance) {
         CarValidator.validCarLength(name);
 
         this.name = name;
         this.distance = distance;
     }
 
-    public int move(int movable) {
+    int move(int movable) {
         distance += checkMovable(movable);
         return distance;
     }
@@ -28,11 +28,11 @@ public class Car {
         return movable >= MIN_MOVABLE_NUMBER ? MOVE : STOP;
     }
 
-    public String getName() {
+    String getName() {
         return name;
     }
 
-    public int getDistance() {
+    int getDistance() {
         return distance;
     }
 }

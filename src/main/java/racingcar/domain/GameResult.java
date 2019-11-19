@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.domain.exception.NotExistMovedCarException;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
@@ -8,7 +10,7 @@ import java.util.stream.Collectors;
 public class GameResult {
     private final List<MovedCar> movedCars;
 
-    public GameResult(List<MovedCar> movedCars) {
+    GameResult(List<MovedCar> movedCars) {
         this.movedCars = movedCars;
     }
 
