@@ -15,6 +15,18 @@ public class MovedCar {
         this.distance = distance;
     }
 
+    public boolean isWinner(int maxDistance) {
+        return distance == maxDistance;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getDistance() {
+        return this.distance;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
