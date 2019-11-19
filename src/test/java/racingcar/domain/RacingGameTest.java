@@ -10,8 +10,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class RacingGameTest {
 
-    Cars cars;
-    RacingGame racingGame;
+    private Cars cars;
+    private RacingGame racingGame;
 
     @Test
     @DisplayName("차들의 최종 이동 결과를 도출한다.")
