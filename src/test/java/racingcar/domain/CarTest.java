@@ -16,10 +16,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
  * @date 2019-11-20
  */
 class CarTest {
+    private PlayRaceCount defaultPlayCount = new PlayRaceCount(5);
+
     @Test
     void constructor_name() {
         String carName = "first";
-        Car car = new Car(carName);
+        Car car = new Car(carName, defaultPlayCount);
         assertEquals(car.getName(), carName);
     }
 
@@ -27,7 +29,7 @@ class CarTest {
     @MethodSource("invalidNames")
     void constructor_name_exception(final String invalidName) {
         assertThrows(IllegalCarNameException.class, () -> {
-            new Car(invalidName);
+            new Car(invalidName, defaultPlayCount);
         });
     }
 

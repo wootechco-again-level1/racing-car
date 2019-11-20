@@ -17,10 +17,14 @@ public class Car {
     private static final String NAME_LENGTH_MAX_EXCEPTION_MESSAGE = "자동차 이름은 5자 미만이어야 합니다.";
 
     private final String name;
+    private final PlayRaceCount playRaceCount;
+    private final ForwardRaceCount forwardCount;
 
-    public Car(final String name) {
+    public Car(final String name, PlayRaceCount playRaceCount) {
         validateName(name);
         this.name = name;
+        this.playRaceCount = playRaceCount;
+        this.forwardCount = new ForwardRaceCount();
     }
 
     private void validateName(final String name) {
