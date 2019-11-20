@@ -9,18 +9,18 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  * @version 1.0
  * @date 2019-11-20
  */
-class ForwardRaceCountTest {
+class ForwardCountTest {
     private final int INIT_COUNT = 0;
 
     @Test
     void constructor() {
-        ForwardRaceCount raceCount = new ForwardRaceCount();
+        ForwardCount raceCount = new ForwardCount();
         assertEquals(raceCount.getCount(), INIT_COUNT);
     }
 
     @Test
     void increase() {
-        ForwardRaceCount raceCount = new ForwardRaceCount();
+        ForwardCount raceCount = new ForwardCount();
         raceCount.increase();
         assertEquals(raceCount.getCount(), INIT_COUNT + 1);
     }

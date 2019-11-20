@@ -21,18 +21,19 @@ class CarTest {
     private static final int DEFAULT_RACE_COUNT = 5;
 
     private Car car;
-    private PlayRaceCount defaultPlayCount = new PlayRaceCount(DEFAULT_RACE_COUNT);
+    private PlayCount defaultPlayCount = new PlayCount(DEFAULT_RACE_COUNT);
+    private RaceCount defaultRaceCount = new RaceCount(defaultPlayCount);
     private IntPredicate defaultDeterminationMovement = number -> number >= 4;
 
     @BeforeEach
     void setUp() {
-        car = new Car("car", defaultPlayCount, defaultDeterminationMovement);
+        car = new Car("car", defaultRaceCount, defaultDeterminationMovement);
     }
 
     @Test
     void constructor_name() {
         String carName = "first";
-        Car car = new Car(carName, defaultPlayCount, defaultDeterminationMovement);
+        Car car = new Car(carName, defaultRaceCount, defaultDeterminationMovement);
         assertEquals(car.getName(), carName);
     }
 
@@ -40,7 +41,7 @@ class CarTest {
     @MethodSource("invalidNames")
     void constructor_name_exception(final String invalidName) {
         assertThrows(IllegalCarNameException.class, () -> {
-            new Car(invalidName, defaultPlayCount, defaultDeterminationMovement);
+            new Car(invalidName, defaultRaceCount, defaultDeterminationMovement);
         });
     }
 

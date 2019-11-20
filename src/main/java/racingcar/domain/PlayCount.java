@@ -9,14 +9,14 @@ import racingcar.exception.IllegalRaceCountException;
  * @version 1.0
  * @date 2019-11-20
  */
-public class PlayRaceCount {
+public class PlayCount {
     private static final int DIFF_INIT_TO_RACE_COUNT = 1;
     private static final String COUNT_EXCEPTION_MESSAGE = "카운트는 " + DIFF_INIT_TO_RACE_COUNT + "이상이어야 합니다.";
     private static final String COUNT_DECREASE_EXCEPTION_MESSAGE = "0보다 작아지면 안됩니다.";
 
     private int count;
 
-    public PlayRaceCount(final int count) {
+    public PlayCount(final int count) {
         validateCount(count);
         this.count = count;
     }

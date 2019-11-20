@@ -19,15 +19,13 @@ public class Car {
     private static final String NAME_LENGTH_MAX_EXCEPTION_MESSAGE = "자동차 이름은 5자 미만이어야 합니다.";
 
     private final String name;
-    private final PlayRaceCount playRaceCount;
-    private final ForwardRaceCount forwardCount;
+    private final RaceCount raceCount;
     private final IntPredicate determinationMovement;
 
-    public Car(final String name, PlayRaceCount playRaceCount, IntPredicate determinationMovement) {
+    public Car(final String name, RaceCount raceCount, IntPredicate determinationMovement) {
         validateName(name);
         this.name = name;
-        this.playRaceCount = playRaceCount;
-        this.forwardCount = new ForwardRaceCount();
+        this.raceCount = raceCount;
         this.determinationMovement = determinationMovement;
     }
 
@@ -48,16 +46,12 @@ public class Car {
     }
 
     /**
-     * determinationMovement를 실행해서 결과에 따라 forwardCount값 증가. <br/>
-     * playRaceCount값 감소.
+     * raceCount의 race를 실행.
      *
      * @param number determinationMovement에 전달할 인자.
      */
     public void move(int number) {
-        if (determinationMovement.test(number)) {
-            forwardCount.increase();
-        }
-        playRaceCount.decrease();
+        raceCount.race(determinationMovement.test(number));
     }
 
     private int getRandomNumber() {
@@ -69,6 +63,6 @@ public class Car {
     }
 
     public int getForwardCount() {
-        return forwardCount.getCount();
+        return raceCount.getForwardCount();
     }
 }

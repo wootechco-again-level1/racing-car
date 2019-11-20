@@ -17,19 +17,19 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @version 1.0
  * @date 2019-11-20
  */
-class PlayRaceCountTest {
+class PlayCountTest {
     @Test
     void constructor_count() {
         int count = 10;
-        PlayRaceCount playRaceCount = new PlayRaceCount(count);
-        assertEquals(playRaceCount.getCount(), count);
+        PlayCount playCount = new PlayCount(count);
+        assertEquals(playCount.getCount(), count);
     }
 
     @ParameterizedTest
     @MethodSource("invalidCounts")
     void constructor_count_exception(final int invalidCount) {
         assertThrows(IllegalRaceCountException.class, () -> {
-            new PlayRaceCount(invalidCount);
+            new PlayCount(invalidCount);
         });
     }
 
@@ -40,25 +40,25 @@ class PlayRaceCountTest {
     @Test
     void decrease() {
         int initCount = 3;
-        PlayRaceCount playRaceCount = new PlayRaceCount(initCount);
-        playRaceCount.decrease();
-        assertEquals(playRaceCount.getCount(), --initCount);
+        PlayCount playCount = new PlayCount(initCount);
+        playCount.decrease();
+        assertEquals(playCount.getCount(), --initCount);
     }
 
     @Test
     void decrease_exception() {
-        PlayRaceCount playRaceCount = new PlayRaceCount(1);
+        PlayCount playCount = new PlayCount(1);
         assertThrows(IllegalRaceCountException.class, () -> {
-            playRaceCount.decrease();
-            playRaceCount.decrease();
+            playCount.decrease();
+            playCount.decrease();
         });
     }
 
     @Test
     void isZero() {
-        PlayRaceCount playRaceCount = new PlayRaceCount(1);
-        assertFalse(playRaceCount.isZero());
-        playRaceCount.decrease();
-        assertTrue(playRaceCount.isZero());
+        PlayCount playCount = new PlayCount(1);
+        assertFalse(playCount.isZero());
+        playCount.decrease();
+        assertTrue(playCount.isZero());
     }
 }

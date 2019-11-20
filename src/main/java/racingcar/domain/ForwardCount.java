@@ -7,12 +7,12 @@ package racingcar.domain;
  * @version 1.0
  * @date 2019-11-20
  */
-public class ForwardRaceCount {
+public class ForwardCount {
     private static final int INIT_COUNT = 0;
 
     private int count;
 
-    public ForwardRaceCount() {
+    public ForwardCount() {
         this.count = INIT_COUNT;
     }
 
