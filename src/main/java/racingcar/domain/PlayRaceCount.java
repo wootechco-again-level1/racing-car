@@ -3,40 +3,28 @@ package racingcar.domain;
 import racingcar.exception.IllegalRaceCountException;
 
 /**
- * 레이스 횟수를 나타낸 객체
+ * 총 실행할 레이스의 횟수를 나타낸 객체
  *
  * @author heebg
  * @version 1.0
  * @date 2019-11-20
  */
-public class RaceCount {
-    private static final int INIT_COUNT = 0;
+public class PlayRaceCount {
     private static final int DIFF_INIT_TO_RACE_COUNT = 1;
-    private static final String COUNT_EXCEPTION_MESSAGE = "카운트는 " + (INIT_COUNT + DIFF_INIT_TO_RACE_COUNT) + "이상이어야 합니다.";
-    private static final String COUNT_DECREASE_EXCEPTION_MESSAGE = INIT_COUNT + "보다 작아지면 안됩니다.";
+    private static final String COUNT_EXCEPTION_MESSAGE = "카운트는 " + DIFF_INIT_TO_RACE_COUNT + "이상이어야 합니다.";
+    private static final String COUNT_DECREASE_EXCEPTION_MESSAGE = "0보다 작아지면 안됩니다.";
 
     private int count;
 
-    public RaceCount() {
-        this.count = INIT_COUNT;
-    }
-
-    public RaceCount(final int count) {
+    public PlayRaceCount(final int count) {
         validateCount(count);
         this.count = count;
     }
 
     private void validateCount(final int count) {
-        if (count < INIT_COUNT + DIFF_INIT_TO_RACE_COUNT) {
+        if (count < DIFF_INIT_TO_RACE_COUNT) {
             throw new IllegalRaceCountException(COUNT_EXCEPTION_MESSAGE);
         }
-    }
-
-    /**
-     * count값을 1 증가시킨다.
-     */
-    public void increase() {
-        count++;
     }
 
     /**
