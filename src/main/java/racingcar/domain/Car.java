@@ -18,12 +18,12 @@ public class Car {
 
     private final String name;
 
-    public Car(String name) {
-        checkValidationName(name);
+    public Car(final String name) {
+        validateName(name);
         this.name = name;
     }
 
-    private void checkValidationName(String name) {
+    private void validateName(final String name) {
         if (Objects.isNull(name) || name.trim().isEmpty()) {
             throw new IllegalCarNameException(NAME_LENGTH_MIN_EXCEPTION_MESSAGE);
         }
