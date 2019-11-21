@@ -16,14 +16,14 @@ public class RacingCars {
     private final RaceCount raceCount;
     private final Cars cars;
 
-    public RacingCars(final List<String> carNames, final int raceCount, final IntPredicate determineMovement) {
-        this.raceCount = new RaceCount(raceCount);
-        this.cars = new Cars(carNames, determineMovement);
+    public RacingCars(final Cars cars, final RaceCount raceCount) {
+        this.raceCount = raceCount;
+        this.cars = cars;
     }
 
-    public RacingCars(final Cars cars, final int raceCount) {
-        this.raceCount = new RaceCount(raceCount);
-        this.cars = cars;
+    public RacingCars(final List<String> names, final RaceCount raceCount, final IntPredicate determineMovement) {
+        this.raceCount = raceCount;
+        this.cars = new Cars(names, determineMovement);
     }
 
     /**

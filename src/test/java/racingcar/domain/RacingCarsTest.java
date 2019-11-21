@@ -23,13 +23,14 @@ class RacingCarsTest {
     private int DEFAULT_RACE_COUNT = 5;
     private List<String> names;
     private IntPredicate determineMovement;
+    private RaceCount raceCount = new RaceCount(DEFAULT_RACE_COUNT);
     private RacingCars racingCars;
 
     @BeforeEach
     void setUp() {
         names = Arrays.asList("car1", "car2", "car3");
         determineMovement = number -> true;
-        racingCars = new RacingCars(names, DEFAULT_RACE_COUNT, determineMovement);
+        racingCars = new RacingCars(names, raceCount, determineMovement);
     }
 
     @Test
@@ -62,7 +63,7 @@ class RacingCarsTest {
         Car winner2 = new Car("car3", number -> true);
         Cars cars = Cars.of(winner1, loser, winner2);
 
-        RacingCars racingCars = new RacingCars(cars, DEFAULT_RACE_COUNT);
+        RacingCars racingCars = new RacingCars(cars, raceCount);
         IntStream.range(0, DEFAULT_RACE_COUNT).forEach(index -> racingCars.race());
 
         Cars winners = racingCars.generateFinalWinner();
