@@ -19,6 +19,7 @@ java racing car study
   - 레이스 한번 실행시 레이스 실행 횟수를 -1 한다.
   - 만약 전진이면 전진한 횟수를 +1 한다.
 - 현재 전진한 횟수를 반환한다.
+- <u>getRandomNumber()를 CarUtils로 뺄까?</u>
 
 
 
@@ -49,8 +50,9 @@ java racing car study
 
 ### Cars
 
-- <u>Car를 리스트로 가지고 있는 객체</u>
-- <u>이름 리스트와 DetermineMovement를 생성자로 받는다.</u>
+- Car를 리스트로 가지고 있는 객체
+- 이름 리스트와 DetermineMovement, RaceCount를 생성자로 받는다.
+- Car 리스트 자체를 받을 수도 있다.
 
 
 
