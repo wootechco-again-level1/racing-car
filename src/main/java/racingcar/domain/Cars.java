@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class Cars {
     private final List<Car> cars;
 
-    public Cars(List<String> names, RaceCount raceCount, IntPredicate determineMovement) {
+    public Cars(final List<String> names, final RaceCount raceCount, final IntPredicate determineMovement) {
         this.cars = names.stream()
             .map(name -> new Car(name, raceCount, determineMovement))
             .collect(Collectors.toList());

@@ -22,7 +22,7 @@ public class Car {
     private final RaceCount raceCount;
     private final IntPredicate determinationMovement;
 
-    public Car(final String name, RaceCount raceCount, IntPredicate determinationMovement) {
+    public Car(final String name, final RaceCount raceCount, final IntPredicate determinationMovement) {
         validateName(name);
         this.name = name;
         this.raceCount = raceCount;
@@ -41,7 +41,7 @@ public class Car {
     /**
      * 레이스 1회 실행.
      */
-    public void play() {
+    public void race() {
         move(getRandomNumber());
     }
 
@@ -50,7 +50,7 @@ public class Car {
      *
      * @param number determinationMovement에 전달할 인자.
      */
-    public void move(int number) {
+    public void move(final int number) {
         raceCount.race(determinationMovement.test(number));
     }
 

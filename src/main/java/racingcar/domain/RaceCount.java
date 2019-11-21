@@ -11,7 +11,7 @@ public class RaceCount {
     private final PlayCount playCount;
     private final ForwardCount forwardCount;
 
-    public RaceCount(PlayCount playCount) {
+    public RaceCount(final PlayCount playCount) {
         this.playCount = playCount;
         this.forwardCount = new ForwardCount();
     }
@@ -22,7 +22,7 @@ public class RaceCount {
      *
      * @param predicate
      */
-    public void race(boolean predicate) {
+    public void race(final boolean predicate) {
         if (predicate) {
             forwardCount.increase();
         }
