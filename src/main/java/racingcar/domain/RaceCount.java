@@ -13,8 +13,8 @@ public class RaceCount {
     private final PlayCount playCount;
     private final ForwardCount forwardCount;
 
-    public RaceCount(final PlayCount playCount) {
-        this.playCount = playCount;
+    public RaceCount(final int playCount) {
+        this.playCount = new PlayCount(playCount);
         this.forwardCount = new ForwardCount();
     }
 
@@ -60,7 +60,7 @@ public class RaceCount {
 
     @Override
     public int hashCode() {
-        int result = playCount != null ? playCount.hashCode() : 0;
+        int result = playCount.hashCode();
         result = 31 * result + forwardCount.hashCode();
         return result;
     }

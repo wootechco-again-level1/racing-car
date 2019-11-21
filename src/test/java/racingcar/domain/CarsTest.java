@@ -16,32 +16,41 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
  */
 class CarsTest {
     private List<String> names = Arrays.asList("car1", "car2", "car3");
-    private RaceCount defaultRaceCount;
+    private final int DEFAULT_RACE_COUNT = 5;
     private IntPredicate defaultDetermineMovement;
+    private Cars cars;
 
     @BeforeEach
     void setUp() {
-        int DEFAULT_PLAY_COUNT = 5;
-        defaultRaceCount = new RaceCount(new PlayCount(DEFAULT_PLAY_COUNT));
         defaultDetermineMovement = number -> true;
+        cars = new Cars(names, DEFAULT_RACE_COUNT, defaultDetermineMovement);
     }
 
     @Test
     void constructor() {
-        Cars cars = new Cars(names, defaultRaceCount, defaultDetermineMovement);
+        cars = new Cars(names, DEFAULT_RACE_COUNT, defaultDetermineMovement);
         assertEquals(cars.size(), 3);
     }
 
     @Test
     void constructor_list() {
-        List<Car> carList = Arrays.asList(new Car("car1", defaultRaceCount, defaultDetermineMovement), new Car("car2", defaultRaceCount, defaultDetermineMovement));
+        List<Car> carList = Arrays.asList(new Car("car1", DEFAULT_RACE_COUNT, defaultDetermineMovement), new Car("car2", DEFAULT_RACE_COUNT, defaultDetermineMovement));
         Cars cars = new Cars(carList);
         assertEquals(cars.size(), 2);
     }
 
     @Test
     void constructor_list_of() {
-        Cars cars = Cars.of(new Car("car1", defaultRaceCount, defaultDetermineMovement), new Car("car2", defaultRaceCount, defaultDetermineMovement));
+        Cars cars = Cars.of(new Car("car1", DEFAULT_RACE_COUNT, defaultDetermineMovement), new Car("car2", DEFAULT_RACE_COUNT, defaultDetermineMovement));
         assertEquals(cars.size(), 2);
+    }
+
+    @Test
+    void race() {
+        cars.race();
+        cars.forEach(car -> {
+            assertEquals(car.getPlayCount(), DEFAULT_RACE_COUNT - 1);
+            assertEquals(car.getForwardCount(), 1);
+        });
     }
 }

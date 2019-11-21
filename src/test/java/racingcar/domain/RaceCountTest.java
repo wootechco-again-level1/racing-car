@@ -17,8 +17,7 @@ class RaceCountTest {
 
     @BeforeEach
     void setUp() {
-        PlayCount defaultPlayCount = new PlayCount(DEFAULT_PLAY_COUNT);
-        raceCount = new RaceCount(defaultPlayCount);
+        raceCount = new RaceCount(DEFAULT_PLAY_COUNT);
     }
 
     @Test
@@ -37,27 +36,26 @@ class RaceCountTest {
 
     @Test
     void equals() {
-        PlayCount playCount = new PlayCount(5);
-        RaceCount target = new RaceCount(playCount);
-        RaceCount source = new RaceCount(playCount);
+        RaceCount target = new RaceCount(DEFAULT_PLAY_COUNT);
+        RaceCount source = new RaceCount(DEFAULT_PLAY_COUNT);
 
         assertEquals(target, source);
     }
 
     @Test
     void equals_race() {
-        RaceCount target = new RaceCount(new PlayCount(5));
+        RaceCount target = new RaceCount(5);
         target.race(false);
-        RaceCount source = new RaceCount(new PlayCount(4));
+        RaceCount source = new RaceCount(4);
 
         assertEquals(target, source);
     }
 
     @Test
     void not_equals() {
-        RaceCount target = new RaceCount(new PlayCount(5));
+        RaceCount target = new RaceCount(5);
         target.race(true);
-        RaceCount source = new RaceCount(new PlayCount(4));
+        RaceCount source = new RaceCount(4);
 
         assertNotEquals(target, source);
     }

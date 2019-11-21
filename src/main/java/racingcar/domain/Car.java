@@ -22,10 +22,10 @@ public class Car {
     private final RaceCount raceCount;
     private final IntPredicate determinationMovement;
 
-    public Car(final String name, final RaceCount raceCount, final IntPredicate determinationMovement) {
+    public Car(final String name, final int raceCount, final IntPredicate determinationMovement) {
         validateName(name);
         this.name = name;
-        this.raceCount = raceCount;
+        this.raceCount = new RaceCount(raceCount);
         this.determinationMovement = determinationMovement;
     }
 
@@ -60,6 +60,10 @@ public class Car {
 
     public String getName() {
         return name;
+    }
+
+    public int getPlayCount() {
+        return raceCount.getPlayCount();
     }
 
     public int getForwardCount() {
