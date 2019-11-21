@@ -57,11 +57,11 @@ public class Car {
     /**
      * 현재 이동한 길이가 같은지 확인.
      *
-     * @param forwardCount
+     * @param count
      * @return
      */
-    public boolean isSameForwardCount(int forwardCount) {
-        return getForwardCount() == forwardCount;
+    public boolean isSameCount(int count) {
+        return forwardCount.isSameCount(count);
     }
 
     private int getRandomNumber() {

@@ -3,7 +3,9 @@ package racingcar.domain;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author heebg
@@ -58,5 +60,14 @@ class ForwardCountTest {
         source.race(true);
 
         assertNotEquals(target, source);
+    }
+
+    @Test
+    void isSameCount() {
+        int count = 1;
+        ForwardCount forwardCount = new ForwardCount();
+        assertFalse(forwardCount.isSameCount(count));
+        forwardCount.race(true);
+        assertTrue(forwardCount.isSameCount(count));
     }
 }

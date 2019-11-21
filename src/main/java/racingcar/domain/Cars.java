@@ -50,7 +50,7 @@ public class Cars {
             .mapToInt(Car::getForwardCount)
             .max().orElseThrow(WinnerNotFoundException::new);
         Car[] winners = cars.stream()
-            .filter(car -> car.isSameForwardCount(winnerCount))
+            .filter(car -> car.isSameCount(winnerCount))
             .toArray(Car[]::new);
         return Cars.of(winners);
     }

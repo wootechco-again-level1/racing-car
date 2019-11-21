@@ -113,8 +113,8 @@ class CarTest {
     @Test
     void sameForwardCount() {
         Car car = new Car("car", number -> true);
-        assertFalse(car.isSameForwardCount(1));
+        assertFalse(car.isSameCount(1));
         car.race();
-        assertTrue(car.isSameForwardCount(1));
+        assertTrue(car.isSameCount(1));
     }
 }

@@ -31,6 +31,16 @@ public class ForwardCount {
         count++;
     }
 
+    /**
+     * count 값이 같은지 확인.
+     *
+     * @param count
+     * @return
+     */
+    public boolean isSameCount(int count) {
+        return this.count == count;
+    }
+
     public int getCount() {
         return count;
     }
