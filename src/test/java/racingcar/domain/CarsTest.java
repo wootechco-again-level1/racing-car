@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.IntPredicate;
+import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -52,5 +53,17 @@ class CarsTest {
             assertEquals(car.getPlayCount(), DEFAULT_RACE_COUNT - 1);
             assertEquals(car.getForwardCount(), 1);
         });
+    }
+
+    @Test
+    void generateWinners() {
+        Car winner1 = new Car("car1", DEFAULT_RACE_COUNT, number -> true);
+        Car loser = new Car("car3", DEFAULT_RACE_COUNT, number -> false);
+        Car winner2 = new Car("car3", DEFAULT_RACE_COUNT, number -> true);
+        Cars cars = Cars.of(winner1, loser, winner2);
+        IntStream.range(0, DEFAULT_RACE_COUNT).forEach(index -> cars.race());
+
+        Cars winners = cars.generateWinner();
+        assertEquals(winners, Cars.of(winner1, winner2));
     }
 }

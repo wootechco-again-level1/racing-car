@@ -55,6 +55,7 @@ java racing car study
 - Car를 리스트로 가지고 있는 객체
 - 이름 리스트와 DetermineMovement, RaceCount를 생성자로 받는다.
 - Car 리스트 자체를 받을 수도 있다.
+- 현재 점수가 가장 높은 자동차들을 리턴하는 로직이 있다.
 
 
 

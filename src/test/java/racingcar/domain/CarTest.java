@@ -10,8 +10,10 @@ import java.util.function.IntPredicate;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author heebg
@@ -113,5 +115,13 @@ class CarTest {
 
         assertEquals(car.getPlayCount(), DEFAULT_RACE_COUNT - 1);
         assertEquals(car.getForwardCount(), 0);
+    }
+
+    @Test
+    void sameForwardCount() {
+        Car car = new Car("car", DEFAULT_RACE_COUNT, number -> true);
+        assertFalse(car.isSameForwardCount(1));
+        car.race();
+        assertTrue(car.isSameForwardCount(1));
     }
 }

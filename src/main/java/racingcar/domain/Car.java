@@ -54,6 +54,16 @@ public class Car {
         raceCount.race(determinationMovement.test(number));
     }
 
+    /**
+     * 현재 이동한 길이가 같은지 확인.
+     *
+     * @param forwardCount
+     * @return
+     */
+    public boolean isSameForwardCount(int forwardCount) {
+        return getForwardCount() == forwardCount;
+    }
+
     private int getRandomNumber() {
         return new Random().nextInt(10);
     }
@@ -75,7 +85,6 @@ public class Car {
         return "Car{" +
             "name='" + name + '\'' +
             ", raceCount=" + raceCount +
-            ", determinationMovement=" + determinationMovement +
             '}';
     }
 
