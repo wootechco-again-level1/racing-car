@@ -10,6 +10,7 @@ import java.util.function.IntPredicate;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 /**
@@ -60,4 +61,38 @@ class CarTest {
         car.move(3);
         assertEquals(car.getForwardCount(), 0);
     }
+
+    @Test
+    void equals() {
+        String name = "car";
+        Car target = new Car(name, defaultRaceCount, defaultDeterminationMovement);
+        Car source = new Car(name, defaultRaceCount, number -> number >= 4);
+
+        assertEquals(target, source);
+    }
+
+    @Test
+    void equals_move() {
+        String name = "car";
+        Car target = new Car(name, defaultRaceCount, defaultDeterminationMovement);
+        target.move(5);
+        RaceCount raceCount = new RaceCount(defaultPlayCount);
+        raceCount.race(true);
+        Car source = new Car(name, raceCount, defaultDeterminationMovement);
+
+        assertEquals(target, source);
+    }
+
+    @Test
+    void not_equals() {
+        String name = "car";
+        Car target = new Car(name, defaultRaceCount, defaultDeterminationMovement);
+        target.move(5);
+        RaceCount raceCount = new RaceCount(defaultPlayCount);
+        Car source = new Car(name, raceCount, defaultDeterminationMovement);
+
+        assertNotEquals(target.getForwardCount(), source.getForwardCount());
+        assertNotEquals(target, source);
+    }
+
 }

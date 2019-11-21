@@ -54,4 +54,26 @@ public class PlayCount {
     public int getCount() {
         return count;
     }
+
+    @Override
+    public String toString() {
+        return "PlayCount{" +
+            "count=" + count +
+            '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        PlayCount playCount = (PlayCount) o;
+
+        return count == playCount.count;
+    }
+
+    @Override
+    public int hashCode() {
+        return count;
+    }
 }

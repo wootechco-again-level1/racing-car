@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 /**
  * @author heebg
@@ -32,5 +33,32 @@ class RaceCountTest {
         raceCount.race(false);
         assertEquals(raceCount.getForwardCount(), 0);
         assertEquals(raceCount.getPlayCount(), DEFAULT_PLAY_COUNT - 1);
+    }
+
+    @Test
+    void equals() {
+        PlayCount playCount = new PlayCount(5);
+        RaceCount target = new RaceCount(playCount);
+        RaceCount source = new RaceCount(playCount);
+
+        assertEquals(target, source);
+    }
+
+    @Test
+    void equals_race() {
+        RaceCount target = new RaceCount(new PlayCount(5));
+        target.race(false);
+        RaceCount source = new RaceCount(new PlayCount(4));
+
+        assertEquals(target, source);
+    }
+
+    @Test
+    void not_equals() {
+        RaceCount target = new RaceCount(new PlayCount(5));
+        target.race(true);
+        RaceCount source = new RaceCount(new PlayCount(4));
+
+        assertNotEquals(target, source);
     }
 }

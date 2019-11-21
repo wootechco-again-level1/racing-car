@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.function.IntPredicate;
 import java.util.stream.Collectors;
 
@@ -31,5 +32,27 @@ public class Cars {
 
     public int size() {
         return cars.size();
+    }
+
+    @Override
+    public String toString() {
+        return "Cars{" +
+            "cars=" + cars +
+            '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Cars cars1 = (Cars) o;
+
+        return Objects.equals(cars, cars1.cars);
+    }
+
+    @Override
+    public int hashCode() {
+        return cars != null ? cars.hashCode() : 0;
     }
 }

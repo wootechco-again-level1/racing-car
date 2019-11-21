@@ -9,6 +9,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -60,5 +61,31 @@ class PlayCountTest {
         assertFalse(playCount.isZero());
         playCount.decrease();
         assertTrue(playCount.isZero());
+    }
+
+    @Test
+    void equals() {
+        PlayCount target = new PlayCount(2);
+        PlayCount source = new PlayCount(2);
+
+        assertEquals(target, source);
+    }
+
+    @Test
+    void equals_decrease() {
+        PlayCount target = new PlayCount(2);
+        PlayCount source = new PlayCount(3);
+        source.decrease();
+
+        assertEquals(target, source);
+    }
+
+    @Test
+    void not_equals() {
+        PlayCount target = new PlayCount(2);
+        PlayCount source = new PlayCount(2);
+        source.decrease();
+
+        assertNotEquals(target, source);
     }
 }

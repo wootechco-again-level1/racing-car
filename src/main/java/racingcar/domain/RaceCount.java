@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import java.util.Objects;
+
 /**
  * playcount와 forwardcount를 가지고있는 객체.
  *
@@ -35,5 +37,31 @@ public class RaceCount {
 
     public int getPlayCount() {
         return playCount.getCount();
+    }
+
+    @Override
+    public String toString() {
+        return "RaceCount{" +
+            "playCount=" + playCount +
+            ", forwardCount=" + forwardCount +
+            '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        RaceCount raceCount = (RaceCount) o;
+
+        if (!Objects.equals(playCount, raceCount.playCount)) return false;
+        return Objects.equals(forwardCount, raceCount.forwardCount);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = playCount != null ? playCount.hashCode() : 0;
+        result = 31 * result + forwardCount.hashCode();
+        return result;
     }
 }

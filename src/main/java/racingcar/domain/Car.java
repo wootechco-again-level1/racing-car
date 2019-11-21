@@ -65,4 +65,31 @@ public class Car {
     public int getForwardCount() {
         return raceCount.getForwardCount();
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+            "name='" + name + '\'' +
+            ", raceCount=" + raceCount +
+            ", determinationMovement=" + determinationMovement +
+            '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Car car = (Car) o;
+
+        if (!Objects.equals(name, car.name)) return false;
+        return Objects.equals(raceCount, car.raceCount);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (raceCount != null ? raceCount.hashCode() : 0);
+        return result;
+    }
 }
