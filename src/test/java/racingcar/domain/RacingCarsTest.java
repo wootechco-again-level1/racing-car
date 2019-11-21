@@ -2,6 +2,7 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import racingcar.exception.RaceNotCountException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -32,7 +34,7 @@ class RacingCarsTest {
 
     @Test
     void constructor() {
-        Cars cars = new Cars(names, DEFAULT_RACE_COUNT, determineMovement);
+        Cars cars = new Cars(names, determineMovement);
         assertEquals(racingCars.getCars(), cars);
     }
 
@@ -48,16 +50,22 @@ class RacingCarsTest {
     }
 
     @Test
-    void generateWinner() {
-        Car winner1 = new Car("car1", DEFAULT_RACE_COUNT, number -> true);
-        Car loser = new Car("car3", DEFAULT_RACE_COUNT, number -> false);
-        Car winner2 = new Car("car3", DEFAULT_RACE_COUNT, number -> true);
+    void race_exception() {
+        IntStream.range(0, DEFAULT_RACE_COUNT).forEach(index -> racingCars.race());
+        assertThrows(RaceNotCountException.class, () -> racingCars.race());
+    }
+
+    @Test
+    void generateFinalWinner() {
+        Car winner1 = new Car("car1", number -> true);
+        Car loser = new Car("car3", number -> false);
+        Car winner2 = new Car("car3", number -> true);
         Cars cars = Cars.of(winner1, loser, winner2);
 
         RacingCars racingCars = new RacingCars(cars, DEFAULT_RACE_COUNT);
         IntStream.range(0, DEFAULT_RACE_COUNT).forEach(index -> racingCars.race());
 
-        Cars winners = racingCars.generateWinner();
+        Cars winners = racingCars.generateFinalWinner();
         assertEquals(winners, Cars.of(winner1, winner2));
     }
 }

@@ -23,9 +23,9 @@ public class Cars {
         this.cars = cars;
     }
 
-    public Cars(final List<String> names, final int raceCount, final IntPredicate determineMovement) {
+    public Cars(final List<String> names, final IntPredicate determineMovement) {
         this.cars = names.stream()
-            .map(name -> new Car(name, raceCount, determineMovement))
+            .map(name -> new Car(name, determineMovement))
             .collect(Collectors.toList());
     }
 

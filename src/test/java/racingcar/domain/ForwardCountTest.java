@@ -20,10 +20,17 @@ class ForwardCountTest {
     }
 
     @Test
-    void increase() {
+    void race_true() {
         ForwardCount raceCount = new ForwardCount();
-        raceCount.increase();
+        raceCount.race(true);
         assertEquals(raceCount.getCount(), INIT_COUNT + 1);
+    }
+
+    @Test
+    void race_false() {
+        ForwardCount raceCount = new ForwardCount();
+        raceCount.race(false);
+        assertEquals(raceCount.getCount(), INIT_COUNT);
     }
 
     @Test
@@ -35,11 +42,11 @@ class ForwardCountTest {
     }
 
     @Test
-    void equals_increase() {
+    void equals_race() {
         ForwardCount target = new ForwardCount();
-        target.increase();
+        target.race(true);
         ForwardCount source = new ForwardCount();
-        source.increase();
+        source.race(true);
 
         assertEquals(target, source);
     }
@@ -48,7 +55,7 @@ class ForwardCountTest {
     void not_equals() {
         ForwardCount target = new ForwardCount();
         ForwardCount source = new ForwardCount();
-        source.increase();
+        source.race(true);
 
         assertNotEquals(target, source);
     }

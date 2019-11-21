@@ -7,8 +7,8 @@ package racingcar.exception;
  * @version 1.0
  * @date 2019-11-20
  */
-public class IllegalRaceCountException extends RuntimeException {
-    public IllegalRaceCountException(String message) {
+public class RaceNotCountException extends RuntimeException {
+    public RaceNotCountException(String message) {
         super(message);
     }
 }

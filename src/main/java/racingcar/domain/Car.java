@@ -19,13 +19,13 @@ public class Car {
     private static final String NAME_LENGTH_MAX_EXCEPTION_MESSAGE = "자동차 이름은 5자 미만이어야 합니다.";
 
     private final String name;
-    private final RaceCount raceCount;
+    private final ForwardCount forwardCount;
     private final IntPredicate determinationMovement;
 
-    public Car(final String name, final int raceCount, final IntPredicate determinationMovement) {
+    public Car(final String name, final IntPredicate determinationMovement) {
         validateName(name);
         this.name = name;
-        this.raceCount = new RaceCount(raceCount);
+        this.forwardCount = new ForwardCount();
         this.determinationMovement = determinationMovement;
     }
 
@@ -51,7 +51,7 @@ public class Car {
      * @param number determinationMovement에 전달할 인자.
      */
     public void move(final int number) {
-        raceCount.race(determinationMovement.test(number));
+        forwardCount.race(determinationMovement.test(number));
     }
 
     /**
@@ -72,19 +72,15 @@ public class Car {
         return name;
     }
 
-    public int getPlayCount() {
-        return raceCount.getPlayCount();
-    }
-
     public int getForwardCount() {
-        return raceCount.getForwardCount();
+        return forwardCount.getCount();
     }
 
     @Override
     public String toString() {
         return "Car{" +
             "name='" + name + '\'' +
-            ", raceCount=" + raceCount +
+            ", forwardCount=" + forwardCount +
             '}';
     }
 
@@ -96,13 +92,13 @@ public class Car {
         Car car = (Car) o;
 
         if (!Objects.equals(name, car.name)) return false;
-        return Objects.equals(raceCount, car.raceCount);
+        return Objects.equals(forwardCount, car.forwardCount);
     }
 
     @Override
     public int hashCode() {
         int result = name != null ? name.hashCode() : 0;
-        result = 31 * result + (raceCount != null ? raceCount.hashCode() : 0);
+        result = 31 * result + (forwardCount != null ? forwardCount.hashCode() : 0);
         return result;
     }
 }

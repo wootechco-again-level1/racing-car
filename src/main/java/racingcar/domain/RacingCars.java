@@ -1,5 +1,7 @@
 package racingcar.domain;
 
+import racingcar.exception.RaceNotFinalException;
+
 import java.util.List;
 import java.util.function.IntPredicate;
 
@@ -11,16 +13,16 @@ import java.util.function.IntPredicate;
  * @date 2019-11-21
  */
 public class RacingCars {
-    private final PlayCount playCount;
+    private final RaceCount raceCount;
     private final Cars cars;
 
     public RacingCars(final List<String> carNames, final int raceCount, final IntPredicate determineMovement) {
-        this.playCount = new PlayCount(raceCount);
-        this.cars = new Cars(carNames, raceCount, determineMovement);
+        this.raceCount = new RaceCount(raceCount);
+        this.cars = new Cars(carNames, determineMovement);
     }
 
     public RacingCars(final Cars cars, final int raceCount) {
-        this.playCount = new PlayCount(raceCount);
+        this.raceCount = new RaceCount(raceCount);
         this.cars = cars;
     }
 
@@ -30,7 +32,7 @@ public class RacingCars {
      * @return boolean
      */
     public boolean hasNext() {
-        return playCount.isZero();
+        return raceCount.isZero();
     }
 
     /**
@@ -38,16 +40,23 @@ public class RacingCars {
      */
     public void race() {
         cars.race();
-        playCount.decrease();
+        raceCount.decrease();
     }
 
     /**
-     * 현재 가장 많이 움직인 자동차들을 구함.
+     * 가장 많이 움직인 자동차들을 구함.
      *
      * @return
      */
-    public Cars generateWinner() {
+    public Cars generateFinalWinner() {
+        validateRaceFinal();
         return cars.generateWinner();
+    }
+
+    private void validateRaceFinal() {
+        if (!hasNext()) {
+            throw new RaceNotFinalException();
+        }
     }
 
     public Cars getCars() {

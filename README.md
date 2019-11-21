@@ -20,7 +20,6 @@ java racing car study
   - 만약 전진이면 전진한 횟수를 +1 한다.
 - 현재 전진한 횟수를 반환한다.
 - <u>굳이 move()가 public으로 테스트를 받아야할 필요가 있을까?</u>
-- <u>Car가 playCount를 가지고 있을 이유가 있을까?</u>
 - <u>getRandomNumber()를 CarUtils로 뺄까?</u>
 
 
@@ -68,7 +67,6 @@ java racing car study
 - 레이스를 실행하는 로직이 있다.
 - 현재 모든 자동차들을 리턴하는 로직이 있다.
 - 현재 점수가 가장 높은 자동차들을 리턴하는 로직이 있다.
-- <u>playcount 다 안돌면 우승자 못구하게 할까?</u>
 
 
 

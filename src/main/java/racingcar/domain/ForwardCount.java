@@ -17,9 +17,17 @@ public class ForwardCount {
     }
 
     /**
-     * count값을 1 증가시킨다.
+     * count 값을 1 증가 시킨다.
+     *
+     * @param condition
      */
-    public void increase() {
+    public void race(boolean condition) {
+        if (condition) {
+            increase();
+        }
+    }
+
+    private void increase() {
         count++;
     }
 
