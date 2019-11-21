@@ -8,7 +8,9 @@ import java.util.List;
 import java.util.function.IntPredicate;
 import java.util.stream.IntStream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author heebg
@@ -16,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @date 2019-11-21
  */
 class RacingCarsTest {
-    private int PLAY_COUNT = 5;
+    private int DEFAULT_RACE_COUNT = 5;
     private List<String> names;
     private IntPredicate determineMovement;
     private RacingCars racingCars;
@@ -25,12 +27,12 @@ class RacingCarsTest {
     void setUp() {
         names = Arrays.asList("car1", "car2", "car3");
         determineMovement = number -> true;
-        racingCars = new RacingCars(names, PLAY_COUNT, determineMovement);
+        racingCars = new RacingCars(names, DEFAULT_RACE_COUNT, determineMovement);
     }
 
     @Test
     void constructor() {
-        Cars cars = new Cars(names, PLAY_COUNT, determineMovement);
+        Cars cars = new Cars(names, DEFAULT_RACE_COUNT, determineMovement);
         assertEquals(racingCars.getCars(), cars);
     }
 
@@ -41,7 +43,21 @@ class RacingCarsTest {
 
     @Test
     void race() {
-        IntStream.range(0, PLAY_COUNT).forEach(index -> racingCars.race());
+        IntStream.range(0, DEFAULT_RACE_COUNT).forEach(index -> racingCars.race());
         assertTrue(racingCars.hasNext());
+    }
+
+    @Test
+    void generateWinner() {
+        Car winner1 = new Car("car1", DEFAULT_RACE_COUNT, number -> true);
+        Car loser = new Car("car3", DEFAULT_RACE_COUNT, number -> false);
+        Car winner2 = new Car("car3", DEFAULT_RACE_COUNT, number -> true);
+        Cars cars = Cars.of(winner1, loser, winner2);
+
+        RacingCars racingCars = new RacingCars(cars, DEFAULT_RACE_COUNT);
+        IntStream.range(0, DEFAULT_RACE_COUNT).forEach(index -> racingCars.race());
+
+        Cars winners = racingCars.generateWinner();
+        assertEquals(winners, Cars.of(winner1, winner2));
     }
 }

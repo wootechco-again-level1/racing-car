@@ -19,8 +19,9 @@ public class RacingCars {
         this.cars = new Cars(carNames, raceCount, determineMovement);
     }
 
-    public Cars getCars() {
-        return cars;
+    public RacingCars(final Cars cars, final int raceCount) {
+        this.playCount = new PlayCount(raceCount);
+        this.cars = cars;
     }
 
     /**
@@ -38,5 +39,18 @@ public class RacingCars {
     public void race() {
         cars.race();
         playCount.decrease();
+    }
+
+    /**
+     * 현재 가장 많이 움직인 자동차들을 구함.
+     *
+     * @return
+     */
+    public Cars generateWinner() {
+        return cars.generateWinner();
+    }
+
+    public Cars getCars() {
+        return cars;
     }
 }
