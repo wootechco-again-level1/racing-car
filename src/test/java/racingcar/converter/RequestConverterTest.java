@@ -1,6 +1,7 @@
 package racingcar.converter;
 
 import org.junit.jupiter.api.Test;
+import racingcar.controller.converter.RequestConverter;
 import racingcar.controller.dto.NamesRequestDto;
 
 import java.util.Arrays;

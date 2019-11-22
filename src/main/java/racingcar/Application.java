@@ -1,7 +1,7 @@
 package racingcar;
 
 import racingcar.controller.RacingCarsController;
-import racingcar.converter.RequestConverter;
+import racingcar.controller.converter.RequestConverter;
 import racingcar.service.RacingCarsService;
 import racingcar.service.dto.RaceProcessResponseDto;
 import racingcar.service.dto.RaceWinnerResponseDto;

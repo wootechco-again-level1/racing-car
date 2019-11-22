@@ -1,4 +1,4 @@
-package racingcar.converter;
+package racingcar.controller.converter;
 
 import racingcar.controller.dto.NamesRequestDto;
 import racingcar.controller.dto.RacingCountRequestDto;
