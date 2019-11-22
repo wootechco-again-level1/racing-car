@@ -21,6 +21,7 @@ java racing car study
 - 현재 전진한 횟수를 반환한다.
 - <u>굳이 move()가 public으로 테스트를 받아야할 필요가 있을까?</u>
 - <u>getRandomNumber()를 CarUtils로 뺄까?</u>
+- <u>CarName 객체를 만들까..?</u>
 
 
 
@@ -31,7 +32,7 @@ java racing car study
 
 
 
-### PlayRaceCount
+### RaceCount
 
 - 생성자로 총 레이스갈 횟수를 받는다.
   - 생성시 숫자를 가지면 1보다 커야한다.
@@ -41,11 +42,11 @@ java racing car study
 
 
 
-### ForwardRaceCount
+### ForwardCount
 
 - 자동차가 전진한 횟수를 가진다.
   - 생성시 무조건 0으로 초기화한다.
-- +1 할 수 있다.
+- 조건이 참일 경우 +1을 한다.
 
 
 
@@ -74,3 +75,42 @@ java racing car study
 
 
 
+### 자동차 이름 입력
+
+- <u>input : 문자열 한 줄</u>
+- convert : `,`를 기준으로 구분, 앞뒤 공백 제거, `List<String>`으로 변경
+- NamesRequestDto
+- Cars 생성
+
+
+
+### 시도할 횟수 입력
+
+- <u>input : `int` 하나</u>
+- convert : 없음.
+- RaceCountRequestDto
+- RaceCount, RacingCars 생성
+
+
+
+### 실행
+
+- convert : `Map<자동차이름(String),전진 횟수(int)>` 로 변경
+- <u>RaceProcessResponseDto</u>
+- <u>output : `이름` : `- x 전진횟수` 로 표시</u>
+
+
+
+### 최종 결과
+
+- convert : `List<자동차이름(String)>` 로 변경
+- <u>RaceWinnerResponseDto</u>
+- <u>output: `이름,이름` 으로 표시</u>
+
+
+
+## 규칙
+
+- Controller에선 Dto만 사용한다.
+- service에서 domain을 사용한다.
+- main에서 controller와 view 사이에 데이터를 주고 받는다.

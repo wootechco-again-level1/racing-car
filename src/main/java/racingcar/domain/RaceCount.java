@@ -51,6 +51,15 @@ public class RaceCount {
         return count == 0;
     }
 
+    /**
+     * count값이 0이 아닌지 인지 확인
+     *
+     * @return boolean
+     */
+    public boolean isNotZero() {
+        return !isZero();
+    }
+
     public int getCount() {
         return count;
     }

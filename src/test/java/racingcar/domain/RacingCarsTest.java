@@ -41,13 +41,13 @@ class RacingCarsTest {
 
     @Test
     void hasNext() {
-        assertFalse(racingCars.hasNext());
+        assertTrue(racingCars.hasNext());
     }
 
     @Test
     void race() {
         IntStream.range(0, DEFAULT_RACE_COUNT).forEach(index -> racingCars.race());
-        assertTrue(racingCars.hasNext());
+        assertFalse(racingCars.hasNext());
     }
 
     @Test

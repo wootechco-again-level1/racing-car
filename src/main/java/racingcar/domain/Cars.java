@@ -8,6 +8,7 @@ import java.util.Objects;
 import java.util.function.Consumer;
 import java.util.function.IntPredicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Car 객체들을 가지고 있는 객체
@@ -61,6 +62,10 @@ public class Cars {
 
     public void forEach(Consumer<? super Car> action) {
         cars.forEach(action);
+    }
+
+    public Stream<Car> stream() {
+        return cars.stream();
     }
 
     @Override

@@ -32,7 +32,7 @@ public class RacingCars {
      * @return boolean
      */
     public boolean hasNext() {
-        return raceCount.isZero();
+        return raceCount.isNotZero();
     }
 
     /**
@@ -54,7 +54,7 @@ public class RacingCars {
     }
 
     private void validateRaceFinal() {
-        if (!hasNext()) {
+        if (hasNext()) {
             throw new RaceNotFinalException();
         }
     }
