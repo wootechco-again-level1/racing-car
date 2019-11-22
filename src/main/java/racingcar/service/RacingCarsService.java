@@ -6,8 +6,8 @@ import racingcar.domain.Cars;
 import racingcar.domain.RaceCount;
 import racingcar.domain.RacingCars;
 import racingcar.service.converter.ResponseConverter;
-import racingcar.service.dto.RaceProcessResponseDto;
-import racingcar.service.dto.RaceWinnerResponseDto;
+import racingcar.vo.RaceProcessResponse;
+import racingcar.vo.RaceWinnerResponse;
 
 import java.util.function.IntPredicate;
 
@@ -37,11 +37,11 @@ public class RacingCarsService {
         racingCars.race();
     }
 
-    public RaceProcessResponseDto getRaceProcess() {
+    public RaceProcessResponse getRaceProcess() {
         return ResponseConverter.toRaceProcess(racingCars.getCars());
     }
 
-    public RaceWinnerResponseDto getWinner() {
+    public RaceWinnerResponse getWinner() {
         return ResponseConverter.toRaceWinner(racingCars.generateFinalWinner());
     }
 }

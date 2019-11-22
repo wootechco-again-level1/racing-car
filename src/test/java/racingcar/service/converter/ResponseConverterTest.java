@@ -5,8 +5,8 @@ import racingcar.domain.Car;
 import racingcar.domain.Cars;
 import racingcar.domain.RaceCount;
 import racingcar.domain.RacingCars;
-import racingcar.service.dto.RaceProcessResponseDto;
-import racingcar.service.dto.RaceWinnerResponseDto;
+import racingcar.vo.RaceProcessResponse;
+import racingcar.vo.RaceWinnerResponse;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -30,12 +30,12 @@ class ResponseConverterTest {
         Cars cars = Cars.of(new Car(name1, number -> true), new Car(name2, number -> false), new Car(name3, number -> true));
         cars.race();
 
-        RaceProcessResponseDto dto = ResponseConverter.toRaceProcess(cars);
+        RaceProcessResponse dto = ResponseConverter.toRaceProcess(cars);
         Map<String, Integer> result = new HashMap<>();
         result.put(name1, 1);
         result.put(name2, 0);
         result.put(name3, 1);
-        RaceProcessResponseDto resultDto = new RaceProcessResponseDto(result);
+        RaceProcessResponse resultDto = new RaceProcessResponse(result);
 
         assertEquals(dto, resultDto);
     }
@@ -50,9 +50,9 @@ class ResponseConverterTest {
         RacingCars racingCars = new RacingCars(cars, new RaceCount(count));
         IntStream.range(0, count).forEach(index -> racingCars.race());
 
-        RaceWinnerResponseDto dto = ResponseConverter.toRaceWinner(racingCars.generateFinalWinner());
+        RaceWinnerResponse dto = ResponseConverter.toRaceWinner(racingCars.generateFinalWinner());
         List<String> result = Arrays.asList(name1, name3);
-        RaceWinnerResponseDto resultDto = new RaceWinnerResponseDto(result);
+        RaceWinnerResponse resultDto = new RaceWinnerResponse(result);
         assertEquals(dto, resultDto);
     }
 }

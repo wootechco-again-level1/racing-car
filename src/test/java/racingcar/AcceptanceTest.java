@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import racingcar.controller.RacingCarsController;
 import racingcar.controller.converter.RequestConverter;
 import racingcar.service.RacingCarsService;
-import racingcar.service.dto.RaceProcessResponseDto;
-import racingcar.service.dto.RaceWinnerResponseDto;
+import racingcar.vo.RaceProcessResponse;
+import racingcar.vo.RaceWinnerResponse;
 
 import java.util.Arrays;
 import java.util.LinkedHashMap;
@@ -46,12 +46,12 @@ class AcceptanceTest {
 
         int raceCount = 1;
         while (controller.hasNextRace()) {
-            RaceProcessResponseDto raceProcessResponseDto = controller.race();
+            RaceProcessResponse raceProcessResponse = controller.race();
             Map<String, Integer> raceProcess = getRaceProcessOutput(raceCount);
-            assertEquals(raceProcessResponseDto.getRaceProcess(), raceProcess);
+            assertEquals(raceProcessResponse.getRaceProcess(), raceProcess);
             raceCount++;
         }
-        RaceWinnerResponseDto winnerResponseDto = controller.getWinner();
+        RaceWinnerResponse winnerResponseDto = controller.getWinner();
         List<String> winnersOutput = names;
         assertEquals(winnerResponseDto.getWinners(), winnersOutput);
     }

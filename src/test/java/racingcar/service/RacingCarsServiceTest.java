@@ -6,8 +6,8 @@ import racingcar.controller.dto.NamesRequestDto;
 import racingcar.controller.dto.RacingCountRequestDto;
 import racingcar.exception.IllegalCarNameException;
 import racingcar.exception.RaceNotCountException;
-import racingcar.service.dto.RaceProcessResponseDto;
-import racingcar.service.dto.RaceWinnerResponseDto;
+import racingcar.vo.RaceProcessResponse;
+import racingcar.vo.RaceWinnerResponse;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -80,18 +80,18 @@ class RacingCarsServiceTest {
     @Test
     void getRaceProcess() {
         service.race();
-        RaceProcessResponseDto responseDto = service.getRaceProcess();
+        RaceProcessResponse responseDto = service.getRaceProcess();
         Map<String, Integer> result = new HashMap<>();
         names.forEach(name -> result.put(name, 1));
-        RaceProcessResponseDto resultDto = new RaceProcessResponseDto(result);
+        RaceProcessResponse resultDto = new RaceProcessResponse(result);
         assertEquals(responseDto, resultDto);
     }
 
     @Test
     void getWinner() {
         IntStream.range(0, raceCount).forEach(index -> service.race());
-        RaceWinnerResponseDto winnerResponseDto = service.getWinner();
-        RaceWinnerResponseDto resultDto = new RaceWinnerResponseDto(names);
+        RaceWinnerResponse winnerResponseDto = service.getWinner();
+        RaceWinnerResponse resultDto = new RaceWinnerResponse(names);
         assertEquals(winnerResponseDto, resultDto);
     }
 }

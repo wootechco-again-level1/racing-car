@@ -1,19 +1,19 @@
-package racingcar.service.dto;
+package racingcar.vo;
 
 import java.util.List;
 import java.util.Objects;
 
 /**
- * 레이스 최종 결과 response dto
+ * 레이스 최종 결과 response vo
  *
  * @author heebg
  * @version 1.0
  * @date 2019-11-22
  */
-public class RaceWinnerResponseDto {
+public class RaceWinnerResponse {
     private final List<String> winners;
 
-    public RaceWinnerResponseDto(final List<String> winners) {
+    public RaceWinnerResponse(final List<String> winners) {
         this.winners = winners;
     }
 
@@ -26,7 +26,7 @@ public class RaceWinnerResponseDto {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        RaceWinnerResponseDto that = (RaceWinnerResponseDto) o;
+        RaceWinnerResponse that = (RaceWinnerResponse) o;
 
         return Objects.equals(winners, that.winners);
     }

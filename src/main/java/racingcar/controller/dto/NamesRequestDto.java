@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * 자동차 이름 request dto
+ * 자동차 이름 request vo
  *
  * @author heebg
  * @version 1.0

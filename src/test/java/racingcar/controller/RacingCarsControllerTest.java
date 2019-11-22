@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import racingcar.controller.dto.NamesRequestDto;
 import racingcar.controller.dto.RacingCountRequestDto;
 import racingcar.service.RacingCarsService;
-import racingcar.service.dto.RaceProcessResponseDto;
-import racingcar.service.dto.RaceWinnerResponseDto;
+import racingcar.vo.RaceProcessResponse;
+import racingcar.vo.RaceWinnerResponse;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -57,10 +57,10 @@ class RacingCarsControllerTest {
     void race() {
         Map<String, Integer> result = new HashMap<>();
         names.forEach(name -> result.put(name, 1));
-        RaceProcessResponseDto resultDto = new RaceProcessResponseDto(result);
+        RaceProcessResponse resultDto = new RaceProcessResponse(result);
         when(service.getRaceProcess()).thenReturn(resultDto);
 
-        RaceProcessResponseDto dto = controller.race();
+        RaceProcessResponse dto = controller.race();
         assertEquals(dto, resultDto);
 
         verify(service).race();
@@ -69,10 +69,10 @@ class RacingCarsControllerTest {
 
     @Test
     void getWinner() {
-        RaceWinnerResponseDto resultDto = new RaceWinnerResponseDto(names);
+        RaceWinnerResponse resultDto = new RaceWinnerResponse(names);
         when(service.getWinner()).thenReturn(resultDto);
 
-        RaceWinnerResponseDto dto = controller.getWinner();
+        RaceWinnerResponse dto = controller.getWinner();
         assertEquals(dto, resultDto);
         verify(service).getWinner();
     }

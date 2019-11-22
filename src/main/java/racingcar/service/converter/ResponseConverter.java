@@ -2,10 +2,9 @@ package racingcar.service.converter;
 
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
-import racingcar.service.dto.RaceProcessResponseDto;
-import racingcar.service.dto.RaceWinnerResponseDto;
+import racingcar.vo.RaceProcessResponse;
+import racingcar.vo.RaceWinnerResponse;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,10 +24,10 @@ public class ResponseConverter {
      * @param cars
      * @return
      */
-    public static RaceProcessResponseDto toRaceProcess(final Cars cars) {
+    public static RaceProcessResponse toRaceProcess(final Cars cars) {
         Map<String, Integer> dto = new LinkedHashMap<>();
         cars.forEach(car -> dto.put(car.getName(), car.getForwardCount()));
-        return new RaceProcessResponseDto(dto);
+        return new RaceProcessResponse(dto);
     }
 
     /**
@@ -37,10 +36,10 @@ public class ResponseConverter {
      * @param winner
      * @return
      */
-    public static RaceWinnerResponseDto toRaceWinner(final Cars winner) {
+    public static RaceWinnerResponse toRaceWinner(final Cars winner) {
         List<String> dto = winner.stream()
             .map(Car::getName)
             .collect(Collectors.toList());
-        return new RaceWinnerResponseDto(dto);
+        return new RaceWinnerResponse(dto);
     }
 }

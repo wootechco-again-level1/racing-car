@@ -3,8 +3,8 @@ package racingcar;
 import racingcar.controller.RacingCarsController;
 import racingcar.controller.converter.RequestConverter;
 import racingcar.service.RacingCarsService;
-import racingcar.service.dto.RaceProcessResponseDto;
-import racingcar.service.dto.RaceWinnerResponseDto;
+import racingcar.vo.RaceProcessResponse;
+import racingcar.vo.RaceWinnerResponse;
 
 import java.util.Scanner;
 import java.util.function.IntPredicate;
@@ -33,10 +33,10 @@ public class Application {
 
         outputProcessTitle();
         while (controller.hasNextRace()) {
-            RaceProcessResponseDto raceProcessResponseDto = controller.race();
-            outputProcess(raceProcessResponseDto.getRaceProcess());
+            RaceProcessResponse raceProcessResponse = controller.race();
+            outputProcess(raceProcessResponse.getRaceProcess());
         }
-        RaceWinnerResponseDto winnerResponseDto = controller.getWinner();
+        RaceWinnerResponse winnerResponseDto = controller.getWinner();
         outputWinner(winnerResponseDto.getWinners());
     }
 }

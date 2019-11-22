@@ -1,7 +1,7 @@
 package racingcar.controller.dto;
 
 /**
- * 레이스 횟수 request dto
+ * 레이스 횟수 request vo
  *
  * @author heebg
  * @version 1.0
