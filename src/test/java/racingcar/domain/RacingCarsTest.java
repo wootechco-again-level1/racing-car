@@ -59,7 +59,7 @@ class RacingCarsTest {
     @Test
     void generateFinalWinner() {
         Car winner1 = new Car("car1", number -> true);
-        Car loser = new Car("car3", number -> false);
+        Car loser = new Car("car2", number -> false);
         Car winner2 = new Car("car3", number -> true);
         Cars cars = Cars.of(winner1, loser, winner2);
 

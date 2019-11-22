@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import racingcar.exception.IllegalCarNameException;
 import racingcar.exception.WinnerNotFoundException;
 
 import java.util.Arrays;
@@ -18,19 +19,32 @@ import java.util.stream.Stream;
  * @date 2019-11-21
  */
 public class Cars {
+    private static final String NAME_DUPLICATE_EXCEPTION_MESSAGE = "중복되는 이름은 사용할 수 없습니다.";
+
     private final List<Car> cars;
 
-    public Cars(List<Car> cars) {
+    public Cars(final List<Car> cars) {
+        validateNames(cars.stream()
+            .map(Car::getName)
+            .collect(Collectors.toList()));
         this.cars = cars;
     }
 
     public Cars(final List<String> names, final IntPredicate determineMovement) {
+        validateNames(names);
         this.cars = names.stream()
             .map(name -> new Car(name, determineMovement))
             .collect(Collectors.toList());
     }
 
-    public static Cars of(Car... cars) {
+    private void validateNames(final List<String> names) {
+        long distinctSize = names.stream().distinct().count();
+        if (names.size() != distinctSize) {
+            throw new IllegalCarNameException(NAME_DUPLICATE_EXCEPTION_MESSAGE);
+        }
+    }
+
+    public static Cars of(final Car... cars) {
         return new Cars(Arrays.asList(cars));
     }
 
