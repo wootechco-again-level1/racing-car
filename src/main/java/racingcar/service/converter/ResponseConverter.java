@@ -25,7 +25,7 @@ public class ResponseConverter {
      * @param cars
      * @return
      */
-    public static RaceProcessResponseDto toRaceProcessDto(final Cars cars) {
+    public static RaceProcessResponseDto toRaceProcess(final Cars cars) {
         Map<String, Integer> dto = new LinkedHashMap<>();
         cars.forEach(car -> dto.put(car.getName(), car.getForwardCount()));
         return new RaceProcessResponseDto(dto);
@@ -37,7 +37,7 @@ public class ResponseConverter {
      * @param winner
      * @return
      */
-    public static RaceWinnerResponseDto toRaceWinnerDto(final Cars winner) {
+    public static RaceWinnerResponseDto toRaceWinner(final Cars winner) {
         List<String> dto = winner.stream()
             .map(Car::getName)
             .collect(Collectors.toList());

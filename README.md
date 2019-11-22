@@ -112,6 +112,5 @@ java racing car study
 
 ## 규칙
 
-- Controller에선 Dto만 사용한다.
-- service에서 domain을 사용한다.
+- Controller의 input, output은 dto이다.
 - main에서 controller와 view 사이에 데이터를 주고 받는다.
