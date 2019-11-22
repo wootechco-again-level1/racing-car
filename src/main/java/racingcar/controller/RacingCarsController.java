@@ -3,6 +3,8 @@ package racingcar.controller;
 import racingcar.controller.dto.NamesRequestDto;
 import racingcar.controller.dto.RacingCountRequestDto;
 import racingcar.service.RacingCarsService;
+import racingcar.service.dto.RaceProcessResponseDto;
+import racingcar.service.dto.RaceWinnerResponseDto;
 
 import java.util.function.IntPredicate;
 
@@ -28,5 +30,14 @@ public class RacingCarsController {
 
     public boolean hasNextRace() {
         return service.hasNextRace();
+    }
+
+    public RaceProcessResponseDto race() {
+        service.race();
+        return service.getRaceProcess();
+    }
+
+    public RaceWinnerResponseDto getWinner() {
+        return service.getWinner();
     }
 }

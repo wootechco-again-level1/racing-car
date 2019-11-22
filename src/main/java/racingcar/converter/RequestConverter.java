@@ -1,6 +1,7 @@
 package racingcar.converter;
 
 import racingcar.controller.dto.NamesRequestDto;
+import racingcar.controller.dto.RacingCountRequestDto;
 
 import java.util.Arrays;
 import java.util.List;
@@ -24,5 +25,15 @@ public class RequestConverter {
         String regex = ",";
         List<String> requestDto = Arrays.stream(data.split(regex)).map(String::trim).collect(Collectors.toList());
         return new NamesRequestDto(requestDto);
+    }
+
+    /**
+     * 레이스 실행 횟수를 받아서 레이싱 카 객체를 만들 수 있는 dto로 변경하는 함수.
+     *
+     * @param data
+     * @return
+     */
+    public static RacingCountRequestDto toRacingCount(final int data) {
+        return new RacingCountRequestDto(data);
     }
 }

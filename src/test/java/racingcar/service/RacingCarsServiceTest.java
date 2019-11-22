@@ -6,10 +6,17 @@ import racingcar.controller.dto.NamesRequestDto;
 import racingcar.controller.dto.RacingCountRequestDto;
 import racingcar.exception.IllegalCarNameException;
 import racingcar.exception.RaceNotCountException;
+import racingcar.service.dto.RaceProcessResponseDto;
+import racingcar.service.dto.RaceWinnerResponseDto;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.function.IntPredicate;
+import java.util.stream.IntStream;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -19,16 +26,25 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  * @date 2019-11-22
  */
 class RacingCarsServiceTest {
+    private List<String> names;
+    private int raceCount = 5;
     private RacingCarsService service;
 
     @BeforeEach
     void setUp() {
+        names = Arrays.asList("hee", "bong", "hi");
         service = new RacingCarsService();
+        NamesRequestDto namesRequestDto = new NamesRequestDto(names);
+        IntPredicate determineMovement = number -> true;
+        service.createCars(namesRequestDto, determineMovement);
+
+        RacingCountRequestDto countRequestDto = new RacingCountRequestDto(raceCount);
+        service.createRacingCars(countRequestDto);
     }
 
     @Test
     void createCars() {
-        NamesRequestDto requestDto = new NamesRequestDto(Arrays.asList("hee", "bong", "hi"));
+        NamesRequestDto requestDto = new NamesRequestDto(names);
         IntPredicate determineMovement = number -> true;
         service.createCars(requestDto, determineMovement);
     }
@@ -58,12 +74,24 @@ class RacingCarsServiceTest {
 
     @Test
     void hasNextRace() {
-        NamesRequestDto namesRequestDto = new NamesRequestDto(Arrays.asList("hee", "bong", "hi"));
-        IntPredicate determineMovement = number -> true;
-        service.createCars(namesRequestDto, determineMovement);
-
-        RacingCountRequestDto countRequestDto = new RacingCountRequestDto(5);
-        service.createRacingCars(countRequestDto);
         assertTrue(service.hasNextRace());
+    }
+
+    @Test
+    void getRaceProcess() {
+        service.race();
+        RaceProcessResponseDto responseDto = service.getRaceProcess();
+        Map<String, Integer> result = new HashMap<>();
+        names.forEach(name -> result.put(name, 1));
+        RaceProcessResponseDto resultDto = new RaceProcessResponseDto(result);
+        assertEquals(responseDto, resultDto);
+    }
+
+    @Test
+    void getWinner() {
+        IntStream.range(0, raceCount).forEach(index -> service.race());
+        RaceWinnerResponseDto winnerResponseDto = service.getWinner();
+        RaceWinnerResponseDto resultDto = new RaceWinnerResponseDto(names);
+        assertEquals(winnerResponseDto, resultDto);
     }
 }
