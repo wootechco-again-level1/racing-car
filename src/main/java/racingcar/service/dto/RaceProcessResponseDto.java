@@ -17,6 +17,10 @@ public class RaceProcessResponseDto {
         this.raceProcess = raceProcess;
     }
 
+    public Map<String, Integer> getRaceProcess() {
+        return raceProcess;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

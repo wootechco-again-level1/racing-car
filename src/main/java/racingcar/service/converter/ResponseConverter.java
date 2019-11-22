@@ -6,6 +6,7 @@ import racingcar.service.dto.RaceProcessResponseDto;
 import racingcar.service.dto.RaceWinnerResponseDto;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -25,7 +26,7 @@ public class ResponseConverter {
      * @return
      */
     public static RaceProcessResponseDto toRaceProcessDto(final Cars cars) {
-        Map<String, Integer> dto = new HashMap<>();
+        Map<String, Integer> dto = new LinkedHashMap<>();
         cars.forEach(car -> dto.put(car.getName(), car.getForwardCount()));
         return new RaceProcessResponseDto(dto);
     }

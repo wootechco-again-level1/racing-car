@@ -11,10 +11,14 @@ import java.util.Objects;
  * @date 2019-11-22
  */
 public class RaceWinnerResponseDto {
-    private final List<String> data;
+    private final List<String> winners;
 
-    public RaceWinnerResponseDto(final List<String> data) {
-        this.data = data;
+    public RaceWinnerResponseDto(final List<String> winners) {
+        this.winners = winners;
+    }
+
+    public List<String> getWinners() {
+        return winners;
     }
 
     @Override
@@ -24,11 +28,11 @@ public class RaceWinnerResponseDto {
 
         RaceWinnerResponseDto that = (RaceWinnerResponseDto) o;
 
-        return Objects.equals(data, that.data);
+        return Objects.equals(winners, that.winners);
     }
 
     @Override
     public int hashCode() {
-        return data != null ? data.hashCode() : 0;
+        return winners != null ? winners.hashCode() : 0;
     }
 }

@@ -56,6 +56,7 @@ java racing car study
 - 이름 리스트와 DetermineMovement, RaceCount를 생성자로 받는다.
 - Car 리스트 자체를 받을 수도 있다.
 - 현재 점수가 가장 높은 자동차들을 리턴하는 로직이 있다.
+- <u>이름이 중복이면 예외 발생.</u>
 
 
 
@@ -77,7 +78,7 @@ java racing car study
 
 ### 자동차 이름 입력
 
-- <u>input : 문자열 한 줄</u>
+- input : 문자열 한 줄
 - convert : `,`를 기준으로 구분, 앞뒤 공백 제거, `List<String>`으로 변경
 - NamesRequestDto
 - Cars 생성
@@ -86,7 +87,7 @@ java racing car study
 
 ### 시도할 횟수 입력
 
-- <u>input : `int` 하나</u>
+- input : `int` 하나
 - convert : 없음.
 - RaceCountRequestDto
 - RaceCount, RacingCars 생성
@@ -97,15 +98,15 @@ java racing car study
 
 - convert : `Map<자동차이름(String),전진 횟수(int)>` 로 변경
 - <u>RaceProcessResponseDto</u>
-- <u>output : `이름` : `- x 전진횟수` 로 표시</u>
+- output : `이름` : `- x 전진횟수` 로 표시
 
 
 
 ### 최종 결과
 
 - convert : `List<자동차이름(String)>` 로 변경
-- <u>RaceWinnerResponseDto</u>
-- <u>output: `이름,이름` 으로 표시</u>
+- RaceWinnerResponseDto
+- output: `이름,이름` 으로 표시
 
 
 
