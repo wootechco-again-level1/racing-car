@@ -1,10 +1,13 @@
 package domain;
 
+import domain.exception.InvalidCarNameLengthException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CarTest {
     private static final String CAR_NAME = "mir";
@@ -21,6 +24,20 @@ public class CarTest {
     @DisplayName("자동차 생성")
     void createCar() {
         assertEquals(car, new Car(CAR_NAME, INIT_POSITION));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"pobi", "crong", "mir"})
+    @DisplayName("자동차 이름 길이 5자 이하")
+    void checkCarNameLength1(final String name) {
+        assertDoesNotThrow(() -> new Car(name, INIT_POSITION));
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = {"pobi123", "crong111", "5글자초과는안돼"})
+    @DisplayName("자동차 이름 길이 5자 초과")
+    void checkCarNameLength2(final String name) {
+        assertThrows(InvalidCarNameLengthException.class, () -> new Car(name, INIT_POSITION));
     }
 
     @Test

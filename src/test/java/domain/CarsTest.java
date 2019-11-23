@@ -1,5 +1,6 @@
 package domain;
 
+import domain.exception.DuplicateNameException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -10,6 +11,7 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CarsTest {
     private String name;
@@ -23,6 +25,19 @@ public class CarsTest {
                 .map(name -> new Car(name, 0))
                 .collect(Collectors.toList())
         );
+    }
+
+    @Test
+    @DisplayName("자동차 이름 중복 확인")
+    void checkDuplicateNames() {
+        name = "pobi, crong, mir, pobi";
+        String[] names = name.replace(" ", "").split(",");
+        assertThrows(DuplicateNameException.class, () -> {
+            new Cars(Arrays.stream(names)
+                    .map(name -> new Car(name, 0))
+                    .collect(Collectors.toList())
+            );
+        });
     }
 
     @Test

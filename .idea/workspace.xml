@@ -2,11 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfa6df9f-f04c-4a6b-97df-5d5bdfe327d9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/domain/exception/DuplicateNameException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/domain/exception/InvalidCarNameLengthException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/utils/InputUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/view/InputView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Car.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Car.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/domain/Cars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Cars.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/domain/CarTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/domain/CarTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/domain/CarsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/domain/CarsTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -47,6 +51,11 @@
       </set>
     </option>
   </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
+  </component>
   <component name="ProjectId" id="1TxWajiHMUcoDOSEy6b0WWW9Fv4" />
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -60,6 +69,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="domain.exception" />
       <recent name="domain" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -81,7 +91,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.CarsTest">
+  <component name="RunManager" selected="JUnit.CarTest">
     <configuration name="CarTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="racing-car.test" />
       <extension name="coverage">
@@ -97,6 +107,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="CarTest.checkCarNameLength" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="racing-car.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="domain" />
+      <option name="MAIN_CLASS_NAME" value="domain.CarTest" />
+      <option name="METHOD_NAME" value="checkCarNameLength(java.lang.String)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CarTest.checkCarNameLength2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="racing-car.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="domain" />
+      <option name="MAIN_CLASS_NAME" value="domain.CarTest" />
+      <option name="METHOD_NAME" value="checkCarNameLength2(java.lang.String)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="CarsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="racing-car.test" />
       <extension name="coverage">
@@ -108,22 +150,6 @@
       <option name="PACKAGE_NAME" value="domain" />
       <option name="MAIN_CLASS_NAME" value="domain.CarsTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CarsTest.createCars" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="racing-car.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="domain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="domain" />
-      <option name="MAIN_CLASS_NAME" value="domain.CarsTest" />
-      <option name="METHOD_NAME" value="createCars" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -144,29 +170,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CarsTest.movedCars" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="racing-car.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="domain.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="domain" />
-      <option name="MAIN_CLASS_NAME" value="domain.CarsTest" />
-      <option name="METHOD_NAME" value="movedCars" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.CarTest" />
+        <item itemvalue="JUnit.CarTest.checkCarNameLength2" />
+        <item itemvalue="JUnit.CarTest.checkCarNameLength" />
         <item itemvalue="JUnit.CarsTest" />
         <item itemvalue="JUnit.CarsTest.movedCars (1)" />
-        <item itemvalue="JUnit.CarsTest.movedCars" />
-        <item itemvalue="JUnit.CarsTest.createCars" />
-        <item itemvalue="JUnit.CarTest" />
       </list>
     </recent_temporary>
   </component>
@@ -180,7 +190,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574402292198</updated>
-      <workItem from="1574402297420" duration="5847000" />
+      <workItem from="1574402297420" duration="7028000" />
     </task>
     <servers />
   </component>

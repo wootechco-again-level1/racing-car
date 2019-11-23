@@ -1,14 +1,25 @@
 package domain;
 
+import domain.exception.InvalidCarNameLengthException;
+
 import java.util.Objects;
 
 public class Car {
+    private static final int CAR_NAME_LENGTH_SIZE = 5;
+
     private final String name;
     private final int position;
 
     public Car(final String name, final int position) {
+        checkCarNameLength(name);
         this.name = name;
         this.position = position;
+    }
+
+    private void checkCarNameLength(final String name) {
+        if (name.length() > CAR_NAME_LENGTH_SIZE) {
+            throw new InvalidCarNameLengthException();
+        }
     }
 
     public Car move(final MoveStrategy moveStrategy) {
