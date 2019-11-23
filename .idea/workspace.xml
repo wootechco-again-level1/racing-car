@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfa6df9f-f04c-4a6b-97df-5d5bdfe327d9" name="Default Changelist" comment="feat: CarsGenerator를 통한 중복 제거" />
-    <list id="64c916e8-feca-424e-9d47-84b181beb514" name="feat: CarsGenerator를 통한 중복 제거" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/application/CarsGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/domain/CarsGeneratorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/domain/CarsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/domain/CarsTest.java" afterDir="false" />
+    <list default="true" id="cfa6df9f-f04c-4a6b-97df-5d5bdfe327d9" name="Default Changelist" comment="feat: 우승자 생성을 위한 클래스 작성">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TODO.md" beforeDir="false" afterPath="$PROJECT_DIR$/TODO.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -177,13 +175,13 @@
     <task active="true" id="Default" summary="Default task">
       <changelist id="cfa6df9f-f04c-4a6b-97df-5d5bdfe327d9" name="Default Changelist" comment="" />
       <changelist id="" name="feat: CarsGenerator를 통한 중복 제거" comment="" />
-      <changelist id="64c916e8-feca-424e-9d47-84b181beb514" name="feat: CarsGenerator를 통한 중복 제거" comment="" />
+      <changelist id="" name="feat: CarsGenerator를 통한 중복 제거" comment="" />
       <changelist id="" name="feat: 자동차 이름 중복 확인 및 길이 제한 추가" comment="" />
       <created>1574402292198</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1574402292198</updated>
-      <workItem from="1574402297420" duration="14452000" />
+      <workItem from="1574402297420" duration="14722000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 자동차 이름 중복 확인 및 길이 제한 추가">
       <created>1574525468440</created>
@@ -220,7 +218,28 @@
       <option name="project" value="LOCAL" />
       <updated>1574533973386</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="feat: CarsGenerator를 통한 중복 제거">
+      <created>1574533983373</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1574533983373</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: CarsGenerator를 통한 생성">
+      <created>1574534146826</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1574534146826</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: 우승자 생성을 위한 클래스 작성">
+      <created>1574534227880</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1574534227880</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -238,9 +257,11 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat: CarsGenerator를 통한 중복 제거" />
     <MESSAGE value="feat: 자동차 이름 중복 확인 및 길이 제한 추가" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 자동차 이름 중복 확인 및 길이 제한 추가" />
+    <MESSAGE value="feat: CarsGenerator를 통한 중복 제거" />
+    <MESSAGE value="feat: CarsGenerator를 통한 생성" />
+    <MESSAGE value="feat: 우승자 생성을 위한 클래스 작성" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 우승자 생성을 위한 클래스 작성" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/racing_car$All_in_racing_car_test.ic" NAME="All in racing-car.test Coverage Results" MODIFIED="1574526908301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
