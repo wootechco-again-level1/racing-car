@@ -4,17 +4,20 @@ import java.util.Objects;
 
 public class Car {
 
+    private static final int START_POSITION = 0;
+    private static final int MOVE_DISTANCE = 1;
+
     private final String name;
-    private Position position;
+    private int position;
 
     public Car(String name) {
         this.name = name;
-        this.position = new Position();
+        this.position = START_POSITION;
     }
 
     public void move(boolean isMove) {
         if (isMove) {
-            position.increase();
+            position += MOVE_DISTANCE;
         }
     }
 
@@ -22,7 +25,7 @@ public class Car {
         return name;
     }
 
-    public Position getPosition() {
+    public int getPosition() {
         return position;
     }
 

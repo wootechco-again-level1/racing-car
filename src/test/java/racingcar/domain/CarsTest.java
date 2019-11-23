@@ -23,12 +23,11 @@ class CarsTest {
         Cars cars = new Cars(Arrays.asList("car1", "car2", "car3", "car4", "car5"));
         cars.execute(new FixMove());
 
-        List<Position> carPositions = cars.getCars().stream()
+        List<Integer> carPositions = cars.getCars().stream()
                 .map(Car::getPosition)
                 .collect(Collectors.toList());
 
-        Position expected = new Position();
-        expected.increase();
+        int expected = 1;
 
         carPositions.forEach(actual -> assertThat(actual).isEqualTo(expected));
     }
@@ -39,10 +38,10 @@ class CarsTest {
         Cars cars = new Cars(Arrays.asList("car1", "car2", "car3", "car4", "car5"));
         cars.execute(new RandomMove());
 
-        List<Position> carPositions = cars.getCars().stream()
+        List<Integer> carPositions = cars.getCars().stream()
                 .map(Car::getPosition)
                 .collect(Collectors.toList());
 
-        carPositions.forEach(position -> logger.info("car position : {}", position.getPosition()));
+        carPositions.forEach(position -> logger.info("car position : {}", position));
     }
 }
