@@ -16,7 +16,6 @@ public class InputView {
             return Integer.parseInt(scanner.nextLine());
         } catch (NumberFormatException e) {
             System.out.println("정수인 숫자를 입력해주세요.");
-            scanner.nextLine();
             return inputCount();
         }
     }

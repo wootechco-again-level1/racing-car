@@ -5,7 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class WinnerTest {
     private String name;
@@ -24,6 +24,7 @@ public class WinnerTest {
         move(5);
         winner = new Winner(cars, 5);
 
+        assertFalse(winner.hasNotWinner());
         assertEquals(3, winner.findWinner().getSize());
     }
 
@@ -33,6 +34,7 @@ public class WinnerTest {
         move(4);
         winner = new Winner(cars, 5);
 
+        assertTrue(winner.hasNotWinner());
         assertEquals(0, winner.findWinner().getSize());
     }
 

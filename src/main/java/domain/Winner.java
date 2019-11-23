@@ -1,6 +1,5 @@
 package domain;
 
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Winner {
@@ -23,19 +22,6 @@ public class Winner {
 
     public boolean hasNotWinner() {
         return !(findWinner().getSize() > WINNER_COUNT);
-    }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Winner winner = (Winner) o;
-        return maxDistance == winner.maxDistance && Objects.equals(cars, winner.cars);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(cars, maxDistance);
     }
 
     @Override
