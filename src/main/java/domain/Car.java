@@ -30,6 +30,18 @@ public class Car {
         return this;
     }
 
+    public boolean isMaxDistance(final int maxDistance) {
+        return position == maxDistance;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;

@@ -25,8 +25,8 @@ public class Cars {
     public Cars move(final MoveStrategy moveStrategy) {
         return new Cars(list.stream()
                 .map(car -> car.move(moveStrategy))
-                .collect(Collectors.toList()))
-                ;
+                .collect(Collectors.toList())
+        );
     }
 
     public int getSize() {
@@ -35,5 +35,14 @@ public class Cars {
 
     public Car get(final int index) {
         return list.get(index);
+    }
+
+    public List<Car> getCars() {
+        return list;
+    }
+
+    @Override
+    public String toString() {
+        return "Cars{" + "list=" + list + '}';
     }
 }

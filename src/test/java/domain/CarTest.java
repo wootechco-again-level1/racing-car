@@ -51,4 +51,26 @@ public class CarTest {
     void doNotMovedCar() {
         assertEquals(car.move(() -> false), new Car(CAR_NAME, 0));
     }
+
+    @Test
+    @DisplayName("자동차가 결승점에 도달했을 경우")
+    void isMaxDistance1() {
+        move(5);
+
+        assertTrue(car.isMaxDistance(5));
+    }
+
+    @Test
+    @DisplayName("자동차가 결승점에 도달하지 못할 경우")
+    void isMaxDistance2() {
+        move(4);
+
+        assertFalse(car.isMaxDistance(5));
+    }
+
+    private void move(final int count) {
+        for (int i = 0; i < count; i++) {
+            car = car.move(() -> true);
+        }
+    }
 }
