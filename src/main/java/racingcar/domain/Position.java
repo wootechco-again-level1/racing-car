@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.Objects;
 
@@ -11,6 +11,10 @@ public class Position {
 
     public int increase() {
         return position += MOVE_DISTANCE;
+    }
+
+    public int getPosition() {
+        return position;
     }
 
     @Override
