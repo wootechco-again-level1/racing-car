@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import racingcar.MoveStrategy;
+import racingcar.exception.PositionCompareException;
 
 import java.util.Collections;
 import java.util.List;
@@ -22,6 +23,21 @@ public class Cars {
 
     public void execute(MoveStrategy moveStrategy) {
         cars.forEach(car -> car.move(moveStrategy.isMove()));
+    }
+
+    public List<Car> getMaxPositionCars() {
+        int maxCarPosition = getMaxCarPosition();
+
+        return cars.stream()
+                .filter(car -> car.matchPosition(maxCarPosition))
+                .collect(Collectors.toList());
+    }
+
+    private int getMaxCarPosition() {
+        return cars.stream()
+                .map(Car::getPosition)
+                .max(Integer::compare)
+                .orElseThrow(PositionCompareException::new);
     }
 
     public List<Car> getCars() {

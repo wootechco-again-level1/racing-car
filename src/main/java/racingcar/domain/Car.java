@@ -29,6 +29,10 @@ public class Car {
         return position;
     }
 
+    public boolean matchPosition(int position) {
+        return this.position == position;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -40,5 +44,13 @@ public class Car {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", position=" + position +
+                '}';
     }
 }
