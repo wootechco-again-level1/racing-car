@@ -54,6 +54,11 @@ public class Car {
         forwardCount.race(determinationMovement.test(number));
     }
 
+    private int getRandomNumber() {
+        int randomNumberBound = 10;
+        return new Random().nextInt(randomNumberBound);
+    }
+
     /**
      * 현재 이동한 길이가 같은지 확인.
      *
@@ -62,10 +67,6 @@ public class Car {
      */
     public boolean isSameCount(int count) {
         return forwardCount.isSameCount(count);
-    }
-
-    private int getRandomNumber() {
-        return new Random().nextInt(10);
     }
 
     public String getName() {

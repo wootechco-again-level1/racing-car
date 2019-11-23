@@ -8,4 +8,7 @@ package racingcar.exception;
  * @date 2019-11-21
  */
 public class RaceNotFinalException extends RuntimeException {
+    public RaceNotFinalException() {
+        super();
+    }
 }
