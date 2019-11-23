@@ -1,4 +1,4 @@
-package racingcar;
+package racingcar.service;
 
 import racingcar.domain.Cars;
 import racingcar.result.Winners;
