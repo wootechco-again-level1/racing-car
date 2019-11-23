@@ -12,6 +12,20 @@ public class Car {
         this.position = new Position();
     }
 
+    public void move(boolean isMove) {
+        if (isMove) {
+            position.increase();
+        }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
