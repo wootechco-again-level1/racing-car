@@ -5,15 +5,13 @@ import racingcar.domain.Round;
 import racingcar.result.RoundResult;
 import racingcar.result.Winners;
 
-import java.util.List;
-
 public class RacingGame {
 
     private final Cars cars;
     private final Round round;
     private final RoundResult roundResult;
 
-    public RacingGame(List<String> carNames, int count) {
+    public RacingGame(String carNames, int count) {
         this.cars = new Cars(carNames);
         this.round = new Round(count);
         this.roundResult = new RoundResult();

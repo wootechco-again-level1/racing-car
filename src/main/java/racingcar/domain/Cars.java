@@ -3,6 +3,7 @@ package racingcar.domain;
 import racingcar.exception.PositionCompareException;
 import racingcar.service.MoveStrategy;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -12,14 +13,18 @@ public class Cars {
 
     private final List<Car> cars;
 
-    public Cars(List<String> carNames) {
+    public Cars(String carNames) {
         this.cars = initCars(carNames);
     }
 
-    private List<Car> initCars(List<String> carNames) {
-        return carNames.stream()
+    private List<Car> initCars(String carNames) {
+        return parsedCarNames(carNames).stream()
                 .map(Car::new)
                 .collect(Collectors.toList());
+    }
+
+    private List<String> parsedCarNames(String carNames) {
+        return Arrays.asList(carNames.replaceAll(" ", "").split(","));
     }
 
     public void execute(MoveStrategy moveStrategy) {
