@@ -1,9 +1,9 @@
 package racingcar.domain;
 
 import racingcar.exception.RaceNotFinalException;
+import strategy.MoveStrategy;
 
 import java.util.List;
-import java.util.function.IntPredicate;
 
 /**
  * 자동차 경주 게임을 진행하는 객체
@@ -21,9 +21,9 @@ public class RacingCars {
         this.cars = cars;
     }
 
-    public RacingCars(final List<String> names, final RaceCount raceCount, final IntPredicate determineMovement) {
+    public RacingCars(final List<String> names, final RaceCount raceCount, final MoveStrategy moveStrategy) {
         this.raceCount = raceCount;
-        this.cars = new Cars(names, determineMovement);
+        this.cars = new Cars(names, moveStrategy);
     }
 
     /**

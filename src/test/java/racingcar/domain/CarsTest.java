@@ -3,14 +3,13 @@ package racingcar.domain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.exception.IllegalCarNameException;
+import strategy.MoveStrategy;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.IntPredicate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * @author heebg
@@ -19,43 +18,43 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class CarsTest {
     private List<String> names = Arrays.asList("car1", "car2", "car3");
-    private IntPredicate defaultDetermineMovement;
+    private MoveStrategy moveStrategy;
     private Cars cars;
 
     @BeforeEach
     void setUp() {
-        defaultDetermineMovement = number -> true;
-        cars = new Cars(names, defaultDetermineMovement);
+        moveStrategy = () -> true;
+        cars = new Cars(names, moveStrategy);
     }
 
     @Test
     void constructor() {
-        cars = new Cars(names, defaultDetermineMovement);
+        cars = new Cars(names, moveStrategy);
         assertEquals(cars.size(), 3);
     }
 
     @Test
     void constructor_name_duplicate_exception() {
         List<String> inputNames = Arrays.asList("car", "dar", "car");
-        assertThrows(IllegalCarNameException.class, () -> new Cars(inputNames, defaultDetermineMovement));
+        assertThrows(IllegalCarNameException.class, () -> new Cars(inputNames, moveStrategy));
     }
 
     @Test
     void constructor_list() {
-        List<Car> carList = Arrays.asList(new Car("car1", defaultDetermineMovement), new Car("car2", defaultDetermineMovement));
+        List<Car> carList = Arrays.asList(new Car("car1", moveStrategy), new Car("car2", moveStrategy));
         Cars cars = new Cars(carList);
         assertEquals(cars.size(), 2);
     }
 
     @Test
     void constructor_list_name_duplicate_exception() {
-        List<Car> carList = Arrays.asList(new Car("car1", defaultDetermineMovement), new Car("car1", defaultDetermineMovement));
+        List<Car> carList = Arrays.asList(new Car("car1", moveStrategy), new Car("car1", moveStrategy));
         assertThrows(IllegalCarNameException.class, () -> new Cars(carList));
     }
 
     @Test
     void constructor_list_of() {
-        Cars cars = Cars.of(new Car("car1", defaultDetermineMovement), new Car("car2", defaultDetermineMovement));
+        Cars cars = Cars.of(new Car("car1", moveStrategy), new Car("car2", moveStrategy));
         assertEquals(cars.size(), 2);
     }
 
@@ -69,9 +68,9 @@ class CarsTest {
 
     @Test
     void generateWinners() {
-        Car winner1 = new Car("car1", number -> true);
-        Car loser = new Car("car2", number -> false);
-        Car winner2 = new Car("car3", number -> true);
+        Car winner1 = new Car("car1", () -> true);
+        Car loser = new Car("car2", () -> false);
+        Car winner2 = new Car("car3", () -> true);
         Cars cars = Cars.of(winner1, loser, winner2);
         cars.race();
 

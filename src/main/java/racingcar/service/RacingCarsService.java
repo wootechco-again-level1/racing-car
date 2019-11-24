@@ -8,8 +8,7 @@ import racingcar.domain.RacingCars;
 import racingcar.service.converter.ResponseConverter;
 import racingcar.vo.RaceProcessResponse;
 import racingcar.vo.RaceWinnerResponse;
-
-import java.util.function.IntPredicate;
+import strategy.MoveStrategy;
 
 /**
  * @author heebg
@@ -20,8 +19,8 @@ public class RacingCarsService {
     private Cars cars;
     private RacingCars racingCars;
 
-    public void createCars(final NamesRequestDto requestDto, final IntPredicate determineMovement) {
-        cars = new Cars(requestDto.getNames(), determineMovement);
+    public void createCars(final NamesRequestDto requestDto, final MoveStrategy moveStrategy) {
+        cars = new Cars(requestDto.getNames(), moveStrategy);
     }
 
     public void createRacingCars(final RacingCountRequestDto requestDto) {

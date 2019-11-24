@@ -5,9 +5,9 @@ import racingcar.controller.converter.RequestConverter;
 import racingcar.service.RacingCarsService;
 import racingcar.vo.RaceProcessResponse;
 import racingcar.vo.RaceWinnerResponse;
+import strategy.RandomNumberStrategy;
 
 import java.util.Scanner;
-import java.util.function.IntPredicate;
 
 import static racingcar.view.InputView.inputNames;
 import static racingcar.view.InputView.inputRaceCount;
@@ -24,10 +24,9 @@ public class Application {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        IntPredicate determineMovement = number -> number >= 4;
         RacingCarsController controller = new RacingCarsController(new RacingCarsService());
         String inputNames = inputNames(scanner);
-        controller.createCars(RequestConverter.toNamesDto(inputNames), determineMovement);
+        controller.createCars(RequestConverter.toNamesDto(inputNames), new RandomNumberStrategy());
         int inputCount = inputRaceCount(scanner);
         controller.createRacingCars(RequestConverter.toRacingCount(inputCount));
 

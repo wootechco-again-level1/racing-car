@@ -1,10 +1,9 @@
 package racingcar.domain;
 
 import racingcar.exception.IllegalCarNameException;
+import strategy.MoveStrategy;
 
 import java.util.Objects;
-import java.util.Random;
-import java.util.function.IntPredicate;
 
 /**
  * 레이스에 참여하는 자동차 객체
@@ -20,13 +19,13 @@ public class Car {
 
     private final String name;
     private final ForwardCount forwardCount;
-    private final IntPredicate determinationMovement;
+    private final MoveStrategy moveStrategy;
 
-    public Car(final String name, final IntPredicate determinationMovement) {
+    public Car(final String name, final MoveStrategy moveStrategy) {
         validateName(name);
         this.name = name;
         this.forwardCount = new ForwardCount();
-        this.determinationMovement = determinationMovement;
+        this.moveStrategy = moveStrategy;
     }
 
     private void validateName(final String name) {
@@ -42,21 +41,7 @@ public class Car {
      * 레이스 1회 실행.
      */
     public void race() {
-        move(getRandomNumber());
-    }
-
-    /**
-     * raceCount의 race를 실행.
-     *
-     * @param number determinationMovement에 전달할 인자.
-     */
-    public void move(final int number) {
-        forwardCount.race(determinationMovement.test(number));
-    }
-
-    private int getRandomNumber() {
-        int randomNumberBound = 10;
-        return new Random().nextInt(randomNumberBound);
+        forwardCount.race(moveStrategy.move());
     }
 
     /**

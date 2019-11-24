@@ -2,12 +2,12 @@ package racingcar.domain;
 
 import racingcar.exception.IllegalCarNameException;
 import racingcar.exception.WinnerNotFoundException;
+import strategy.MoveStrategy;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Consumer;
-import java.util.function.IntPredicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -30,10 +30,10 @@ public class Cars {
         this.cars = cars;
     }
 
-    public Cars(final List<String> names, final IntPredicate determineMovement) {
+    public Cars(final List<String> names, final MoveStrategy moveStrategy) {
         validateNames(names);
         this.cars = names.stream()
-            .map(name -> new Car(name, determineMovement))
+            .map(name -> new Car(name, moveStrategy))
             .collect(Collectors.toList());
     }
 

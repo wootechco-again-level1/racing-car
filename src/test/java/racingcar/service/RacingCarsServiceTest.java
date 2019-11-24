@@ -8,12 +8,12 @@ import racingcar.exception.IllegalCarNameException;
 import racingcar.exception.RaceNotCountException;
 import racingcar.vo.RaceProcessResponse;
 import racingcar.vo.RaceWinnerResponse;
+import strategy.MoveStrategy;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.IntPredicate;
 import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -29,14 +29,15 @@ class RacingCarsServiceTest {
     private List<String> names;
     private int raceCount = 5;
     private RacingCarsService service;
+    private MoveStrategy moveStrategy;
 
     @BeforeEach
     void setUp() {
         names = Arrays.asList("hee", "bong", "hi");
         service = new RacingCarsService();
         NamesRequestDto namesRequestDto = new NamesRequestDto(names);
-        IntPredicate determineMovement = number -> true;
-        service.createCars(namesRequestDto, determineMovement);
+        moveStrategy = () -> true;
+        service.createCars(namesRequestDto, moveStrategy);
 
         RacingCountRequestDto countRequestDto = new RacingCountRequestDto(raceCount);
         service.createRacingCars(countRequestDto);
@@ -45,16 +46,14 @@ class RacingCarsServiceTest {
     @Test
     void createCars() {
         NamesRequestDto requestDto = new NamesRequestDto(names);
-        IntPredicate determineMovement = number -> true;
-        service.createCars(requestDto, determineMovement);
+        service.createCars(requestDto, moveStrategy);
     }
 
     @Test
     void createCars_exception() {
         NamesRequestDto requestDto = new NamesRequestDto(Arrays.asList("hee", "", "hi"));
-        IntPredicate determineMovement = number -> true;
         assertThrows(IllegalCarNameException.class, () -> {
-            service.createCars(requestDto, determineMovement);
+            service.createCars(requestDto, moveStrategy);
         });
     }
 

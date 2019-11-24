@@ -3,10 +3,10 @@ package racingcar.domain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import racingcar.exception.RaceNotCountException;
+import strategy.MoveStrategy;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.IntPredicate;
 import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,20 +22,20 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class RacingCarsTest {
     private int DEFAULT_RACE_COUNT = 5;
     private List<String> names;
-    private IntPredicate determineMovement;
+    private MoveStrategy moveStrategy;
     private RaceCount raceCount = new RaceCount(DEFAULT_RACE_COUNT);
     private RacingCars racingCars;
 
     @BeforeEach
     void setUp() {
         names = Arrays.asList("car1", "car2", "car3");
-        determineMovement = number -> true;
-        racingCars = new RacingCars(names, raceCount, determineMovement);
+        moveStrategy = () -> true;
+        racingCars = new RacingCars(names, raceCount, moveStrategy);
     }
 
     @Test
     void constructor() {
-        Cars cars = new Cars(names, determineMovement);
+        Cars cars = new Cars(names, moveStrategy);
         assertEquals(racingCars.getCars(), cars);
     }
 
@@ -58,9 +58,9 @@ class RacingCarsTest {
 
     @Test
     void generateFinalWinner() {
-        Car winner1 = new Car("car1", number -> true);
-        Car loser = new Car("car2", number -> false);
-        Car winner2 = new Car("car3", number -> true);
+        Car winner1 = new Car("car1", () -> true);
+        Car loser = new Car("car2", () -> false);
+        Car winner2 = new Car("car3", () -> true);
         Cars cars = Cars.of(winner1, loser, winner2);
 
         RacingCars racingCars = new RacingCars(cars, raceCount);

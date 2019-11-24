@@ -27,7 +27,7 @@ class ResponseConverterTest {
         String name1 = "car1";
         String name2 = "car2";
         String name3 = "car3";
-        Cars cars = Cars.of(new Car(name1, number -> true), new Car(name2, number -> false), new Car(name3, number -> true));
+        Cars cars = Cars.of(new Car(name1, () -> true), new Car(name2, () -> false), new Car(name3, () -> true));
         cars.race();
 
         RaceProcessResponse dto = ResponseConverter.toRaceProcess(cars);
@@ -45,7 +45,7 @@ class ResponseConverterTest {
         String name1 = "car1";
         String name2 = "car2";
         String name3 = "car3";
-        Cars cars = Cars.of(new Car(name1, number -> true), new Car(name2, number -> false), new Car(name3, number -> true));
+        Cars cars = Cars.of(new Car(name1, () -> true), new Car(name2, () -> false), new Car(name3, () -> true));
         int count = 5;
         RacingCars racingCars = new RacingCars(cars, new RaceCount(count));
         IntStream.range(0, count).forEach(index -> racingCars.race());

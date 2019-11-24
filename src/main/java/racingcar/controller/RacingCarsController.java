@@ -5,8 +5,7 @@ import racingcar.controller.dto.RacingCountRequestDto;
 import racingcar.service.RacingCarsService;
 import racingcar.vo.RaceProcessResponse;
 import racingcar.vo.RaceWinnerResponse;
-
-import java.util.function.IntPredicate;
+import strategy.MoveStrategy;
 
 /**
  * @author heebg
@@ -20,8 +19,8 @@ public class RacingCarsController {
         this.service = service;
     }
 
-    public void createCars(final NamesRequestDto requestDto, final IntPredicate determineMovement) {
-        service.createCars(requestDto, determineMovement);
+    public void createCars(final NamesRequestDto requestDto, final MoveStrategy moveStrategy) {
+        service.createCars(requestDto, moveStrategy);
     }
 
     public void createRacingCars(final RacingCountRequestDto requestDto) {

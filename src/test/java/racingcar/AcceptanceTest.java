@@ -12,7 +12,6 @@ import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.IntPredicate;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -25,7 +24,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class AcceptanceTest {
     private String inputNames;
     private List<String> names;
-    private IntPredicate determineMovement;
     private int inputRaceCount;
 
     @BeforeEach
@@ -34,14 +32,13 @@ class AcceptanceTest {
         names = Arrays.stream(inputNames.split(","))
             .map(String::trim)
             .collect(Collectors.toList());
-        determineMovement = number -> true;
         inputRaceCount = 5;
     }
 
     @Test
     void main() {
         RacingCarsController controller = new RacingCarsController(new RacingCarsService());
-        controller.createCars(RequestConverter.toNamesDto(inputNames), determineMovement);
+        controller.createCars(RequestConverter.toNamesDto(inputNames), () -> true);
         controller.createRacingCars(RequestConverter.toRacingCount(inputRaceCount));
 
         int raceCount = 1;

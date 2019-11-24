@@ -7,12 +7,12 @@ import racingcar.controller.dto.RacingCountRequestDto;
 import racingcar.service.RacingCarsService;
 import racingcar.vo.RaceProcessResponse;
 import racingcar.vo.RaceWinnerResponse;
+import strategy.MoveStrategy;
 
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.IntPredicate;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.mock;
@@ -41,9 +41,9 @@ class RacingCarsControllerTest {
     @Test
     void createCars() {
         NamesRequestDto namesRequestDto = new NamesRequestDto(names);
-        IntPredicate determineMovement = number -> true;
-        controller.createCars(namesRequestDto, determineMovement);
-        verify(service).createCars(namesRequestDto, determineMovement);
+        MoveStrategy moveStrategy = () -> true;
+        controller.createCars(namesRequestDto, moveStrategy);
+        verify(service).createCars(namesRequestDto, moveStrategy);
     }
 
     @Test

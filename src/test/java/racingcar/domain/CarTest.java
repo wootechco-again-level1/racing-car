@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import racingcar.exception.IllegalCarNameException;
+import strategy.MoveStrategy;
 
-import java.util.function.IntPredicate;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,17 +22,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 class CarTest {
     private Car car;
-    private IntPredicate defaultDeterminationMovement = number -> number >= 4;
+    private MoveStrategy moveStrategy = () -> true;
 
     @BeforeEach
     void setUp() {
-        car = new Car("car", defaultDeterminationMovement);
+        car = new Car("car", moveStrategy);
     }
 
     @Test
     void constructor_name() {
         String carName = "first";
-        Car car = new Car(carName, defaultDeterminationMovement);
+        Car car = new Car(carName, moveStrategy);
         assertEquals(car.getName(), carName);
     }
 
@@ -40,7 +40,7 @@ class CarTest {
     @MethodSource("invalidNames")
     void constructor_name_exception(final String invalidName) {
         assertThrows(IllegalCarNameException.class, () -> {
-            new Car(invalidName, defaultDeterminationMovement);
+            new Car(invalidName, moveStrategy);
         });
     }
 
@@ -50,21 +50,22 @@ class CarTest {
 
     @Test
     void play_forward() {
-        car.move(4);
+        car.race();
         assertEquals(car.getForwardCount(), 1);
     }
 
     @Test
     void play_stop() {
-        car.move(3);
+        Car car = new Car("car", () -> false);
+        car.race();
         assertEquals(car.getForwardCount(), 0);
     }
 
     @Test
     void equals() {
         String name = "car";
-        Car target = new Car(name, defaultDeterminationMovement);
-        Car source = new Car(name, number -> number >= 4);
+        Car target = new Car(name, moveStrategy);
+        Car source = new Car(name, () -> true);
 
         assertEquals(target, source);
     }
@@ -72,10 +73,10 @@ class CarTest {
     @Test
     void equals_move() {
         String name = "car";
-        Car target = new Car(name, defaultDeterminationMovement);
-        target.move(5);
-        Car source = new Car(name, defaultDeterminationMovement);
-        source.move(6);
+        Car target = new Car(name, moveStrategy);
+        target.race();
+        Car source = new Car(name, moveStrategy);
+        source.race();
 
         assertEquals(target, source);
     }
@@ -83,9 +84,9 @@ class CarTest {
     @Test
     void not_equals() {
         String name = "car";
-        Car target = new Car(name, defaultDeterminationMovement);
-        target.move(5);
-        Car source = new Car(name, defaultDeterminationMovement);
+        Car target = new Car(name, moveStrategy);
+        target.race();
+        Car source = new Car(name, moveStrategy);
 
         assertNotEquals(target.getForwardCount(), source.getForwardCount());
         assertNotEquals(target, source);
@@ -93,7 +94,7 @@ class CarTest {
 
     @Test
     void race_true() {
-        Car car = new Car("car", number -> true);
+        Car car = new Car("car", moveStrategy);
         assertEquals(car.getForwardCount(), 0);
 
         car.race();
@@ -103,7 +104,7 @@ class CarTest {
 
     @Test
     void race_false() {
-        Car car = new Car("car", number -> false);
+        Car car = new Car("car", () -> false);
         assertEquals(car.getForwardCount(), 0);
 
         car.race();
@@ -112,7 +113,7 @@ class CarTest {
 
     @Test
     void sameForwardCount() {
-        Car car = new Car("car", number -> true);
+        Car car = new Car("car", () -> true);
         assertFalse(car.isSameCount(1));
         car.race();
         assertTrue(car.isSameCount(1));

@@ -19,8 +19,6 @@ java racing car study
   - 레이스 한번 실행시 레이스 실행 횟수를 -1 한다.
   - 만약 전진이면 전진한 횟수를 +1 한다.
 - 현재 전진한 횟수를 반환한다.
-- <u>굳이 move()가 public으로 테스트를 받아야할 필요가 있을까?</u>
-- <u>getRandomNumber()를 CarUtils로 뺄까?</u>
 - <u>CarName 객체를 만들까..?</u>
 
 
