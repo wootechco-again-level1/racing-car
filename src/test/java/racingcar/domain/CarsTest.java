@@ -18,11 +18,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 class CarsTest {
     
     private static final Logger logger = LoggerFactory.getLogger(CarsTest.class);
+    private static final String THREE_CARS = "car1, car2, car3";
+    private static final String FIVE_CARS = "car1, car2, car3, car4, car5";
 
     @Test
     @DisplayName("전체 자동차 고정 이동")
     void fixExecuteTest() {
-        Cars cars = new Cars(Arrays.asList("car1", "car2", "car3"));
+        Cars cars = new Cars(THREE_CARS);
         cars.execute(new FixMove());
 
         List<Integer> carPositions = cars.getCars().stream()
@@ -37,7 +39,7 @@ class CarsTest {
     @Test
     @DisplayName("전체 자동차 랜덤 이동")
     void randomExecuteTest() {
-        Cars cars = new Cars(Arrays.asList("car1", "car2", "car3", "car4", "car5"));
+        Cars cars = new Cars(FIVE_CARS);
         cars.execute(new RandomMove());
 
         List<Integer> carPositions = cars.getCars().stream()
@@ -50,11 +52,11 @@ class CarsTest {
     @Test
     @DisplayName("전체 자동차 고정 이동 후 최대 거리")
     void maxDistanceCarsTest() {
-        Cars cars = new Cars(Arrays.asList("car1", "car2", "car3"));
+        Cars cars = new Cars(THREE_CARS);
         cars.execute(new FixMove());
 
         List<Car> actual = cars.getMaxPositionCars();
-        List<Car> expected = new Cars(Arrays.asList("car1", "car2", "car3")).getCars();
+        List<Car> expected = new Cars(THREE_CARS).getCars();
 
         assertThat(actual).isEqualTo(expected);
     }
@@ -62,7 +64,7 @@ class CarsTest {
     @Test
     @DisplayName("전체 자동차 랜덤 이동 후 최대 거리")
     void maxDistanceCars2() {
-        Cars cars = new Cars(Arrays.asList("car1", "car2", "car3", "car4", "car5"));
+        Cars cars = new Cars(FIVE_CARS);
         cars.execute(new RandomMove());
 
         List<Car> maxPositionCars = cars.getMaxPositionCars();
@@ -74,7 +76,7 @@ class CarsTest {
     @DisplayName("라운드 마다 결과 저장")
     void getPositionsTest() {
         List<String> values = Arrays.asList("car1", "car2", "car3");
-        Cars cars = new Cars(values);
+        Cars cars = new Cars(THREE_CARS);
         cars.execute(new FixMove());
         Map<String, Integer> actual = cars.getPositions();
 

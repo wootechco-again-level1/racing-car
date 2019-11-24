@@ -1,5 +1,6 @@
 package racingcar.domain;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -7,6 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class RoundTest {
 
     @Test
+    @DisplayName("다음 라운드 이동")
     void nextTest() {
         Round round = new Round(5);
         int before = round.getRound();
@@ -20,6 +22,7 @@ class RoundTest {
     }
 
     @Test
+    @DisplayName("전체 라운드 종료 확인")
     void isFinishedTest() {
         Round round = new Round(3);
 
