@@ -12,10 +12,8 @@ public class OutputView {
     private static final String WINNER_PRINT_DELIMITER = ", ";
     private static final String VALUE_SYMBOL = "-";
 
-    public static void printWinners(List<String> winnerNames) {
-        StringJoiner stringJoiner = new StringJoiner(WINNER_PRINT_DELIMITER);
-        winnerNames.forEach(stringJoiner::add);
-        System.out.println(stringJoiner.toString() + " 가 우승했습니다.");
+    public static void printResultIntro() {
+        System.out.println("\n실행 결과");
     }
 
     public static void printRoundResult(Map<String, Integer> positions) {
@@ -28,5 +26,11 @@ public class OutputView {
         });
 
         System.out.println(stringBuilder.toString());
+    }
+
+    public static void printWinners(List<String> winnerNames) {
+        StringJoiner stringJoiner = new StringJoiner(WINNER_PRINT_DELIMITER);
+        winnerNames.forEach(stringJoiner::add);
+        System.out.println(stringJoiner.toString() + " 가 우승했습니다.");
     }
 }
