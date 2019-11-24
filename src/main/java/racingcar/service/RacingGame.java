@@ -1,28 +1,39 @@
 package racingcar.service;
 
 import racingcar.domain.Cars;
+import racingcar.domain.Round;
+import racingcar.result.RoundResult;
 import racingcar.result.Winners;
 
 import java.util.List;
-import java.util.stream.IntStream;
 
 public class RacingGame {
 
     private final Cars cars;
-    private final int round;
-    private Winners winners;
+    private final Round round;
+    private final RoundResult roundResult;
 
-    public RacingGame(Cars cars, int round) {
-        this.cars = cars;
-        this.round = round;
+    public RacingGame(List<String> carNames, int count) {
+        this.cars = new Cars(carNames);
+        this.round = new Round(count);
+        this.roundResult = new RoundResult();
     }
 
     public void race() {
-        IntStream.rangeClosed(1, round).forEach(i -> cars.execute(new RandomMove()));
-        this.winners = new Winners(cars);
+        cars.execute(new RandomMove());
+        roundResult.update(cars);
+        round.next();
     }
 
-    public List<String> getWinners() {
-        return winners.getWinnerNames();
+    public boolean isFinished() {
+        return round.isFinished();
+    }
+
+    public RoundResult getRoundResult() {
+        return roundResult;
+    }
+
+    public Winners getWinners() {
+        return new Winners(cars);
     }
 }

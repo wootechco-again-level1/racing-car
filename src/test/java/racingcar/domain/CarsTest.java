@@ -8,7 +8,9 @@ import racingcar.service.FixMove;
 import racingcar.service.RandomMove;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -66,5 +68,19 @@ class CarsTest {
         List<Car> maxPositionCars = cars.getMaxPositionCars();
 
         maxPositionCars.forEach(car -> logger.info("{}", car));
+    }
+
+    @Test
+    @DisplayName("라운드 마다 결과 저장")
+    void getPositionsTest() {
+        List<String> values = Arrays.asList("car1", "car2", "car3");
+        Cars cars = new Cars(values);
+        cars.execute(new FixMove());
+        Map<String, Integer> actual = cars.getPositions();
+
+        Map<String, Integer> expected = new HashMap<>();
+        values.forEach(value -> expected.put(value, 1));
+
+        values.forEach(value -> assertThat(actual.get(value)).isEqualTo(expected.get(value)));
     }
 }

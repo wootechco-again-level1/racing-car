@@ -5,6 +5,7 @@ import racingcar.service.MoveStrategy;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class Cars {
@@ -26,18 +27,23 @@ public class Cars {
     }
 
     public List<Car> getMaxPositionCars() {
-        int maxCarPosition = getMaxCarPosition();
+        int maxCarPosition = getMaxPosition();
 
         return cars.stream()
                 .filter(car -> car.matchPosition(maxCarPosition))
                 .collect(Collectors.toList());
     }
 
-    private int getMaxCarPosition() {
+    private int getMaxPosition() {
         return cars.stream()
                 .map(Car::getPosition)
                 .max(Integer::compare)
                 .orElseThrow(PositionCompareException::new);
+    }
+
+    public Map<String, Integer> getPositions() {
+        return cars.stream()
+                .collect(Collectors.toMap(Car::getName, Car::getPosition));
     }
 
     public List<Car> getCars() {
