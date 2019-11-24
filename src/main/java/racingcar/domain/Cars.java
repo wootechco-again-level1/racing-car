@@ -11,6 +11,10 @@ import java.util.stream.Collectors;
 
 public class Cars {
 
+    private static final String SPACE_NAME = " ";
+    private static final String NON_SPACE_NAME = "";
+    private static final String NAME_DELIMITER = ",";
+
     private final List<Car> cars;
 
     public Cars(String carNames) {
@@ -24,7 +28,7 @@ public class Cars {
     }
 
     private List<String> parsedCarNames(String carNames) {
-        return Arrays.asList(carNames.replaceAll(" ", "").split(","));
+        return Arrays.asList(carNames.replaceAll(SPACE_NAME, NON_SPACE_NAME).split(NAME_DELIMITER));
     }
 
     public void execute(MoveStrategy moveStrategy) {
