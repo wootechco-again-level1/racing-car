@@ -1,9 +1,9 @@
-package racingcar.service;
+package racingcar.controller;
 
 import racingcar.domain.Cars;
 import racingcar.domain.Round;
-import racingcar.result.RoundResult;
-import racingcar.result.Winners;
+import racingcar.domain.RoundResult;
+import racingcar.domain.Winners;
 
 public class RacingGame {
 

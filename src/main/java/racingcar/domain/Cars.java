@@ -1,7 +1,7 @@
 package racingcar.domain;
 
+import racingcar.controller.MoveStrategy;
 import racingcar.exception.PositionCompareException;
-import racingcar.service.MoveStrategy;
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -4,8 +4,8 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import racingcar.service.FixMove;
-import racingcar.service.RandomMove;
+import racingcar.controller.FixMove;
+import racingcar.controller.RandomMove;
 
 import java.util.Arrays;
 import java.util.HashMap;

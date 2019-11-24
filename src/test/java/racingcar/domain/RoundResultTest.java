@@ -1,9 +1,8 @@
-package racingcar.result;
+package racingcar.domain;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.domain.Cars;
-import racingcar.service.FixMove;
+import racingcar.controller.FixMove;
 
 import java.util.Map;
 

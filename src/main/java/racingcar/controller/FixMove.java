@@ -1,4 +1,4 @@
-package racingcar.service;
+package racingcar.controller;
 
 public class FixMove implements MoveStrategy {
 

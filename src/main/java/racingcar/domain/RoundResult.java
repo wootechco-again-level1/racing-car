@@ -1,6 +1,4 @@
-package racingcar.result;
-
-import racingcar.domain.Cars;
+package racingcar.domain;
 
 import java.util.Collections;
 import java.util.HashMap;

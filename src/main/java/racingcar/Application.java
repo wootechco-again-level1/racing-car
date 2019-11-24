@@ -1,8 +1,8 @@
 package racingcar;
 
-import racingcar.result.RoundResult;
-import racingcar.result.Winners;
-import racingcar.service.RacingGame;
+import racingcar.controller.RacingGame;
+import racingcar.domain.RoundResult;
+import racingcar.domain.Winners;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
