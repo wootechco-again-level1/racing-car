@@ -85,4 +85,21 @@ class CarsTest {
 
         values.forEach(value -> assertThat(actual.get(value)).isEqualTo(expected.get(value)));
     }
+
+    @Test
+    @DisplayName("자동차 이름 파싱")
+    void parsedCarNamesTest() {
+        String names1 = "car1,car2,car3";
+        String names2 = "car1, car2, car3";
+        String names3 = "ca r 1, c ar 2 , c a r 3   ";
+
+        Cars cars1 = new Cars(names1);
+        Cars cars2 = new Cars(names2);
+        Cars cars3 = new Cars(names3);
+
+        List<Car> expected = Arrays.asList(new Car("car1"), new Car("car2"), new Car("car3"));
+        assertThat(cars1.getCars()).isEqualTo(expected);
+        assertThat(cars2.getCars()).isEqualTo(expected);
+        assertThat(cars3.getCars()).isEqualTo(expected);
+    }
 }
