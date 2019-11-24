@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class RoundsResult {
-    private List<OneRound> rounds;
+    private final List<OneRound> rounds;
 
     public RoundsResult() {
         this.rounds = new ArrayList<>();

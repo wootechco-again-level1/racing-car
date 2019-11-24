@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.Map;
 
 public class OneRound {
-    private Map<String, Integer> carStatuses;
+    private final Map<String, Integer> carStatuses;
 
     public OneRound(Map<String, Integer> carStatuses) {
         this.carStatuses = carStatuses;

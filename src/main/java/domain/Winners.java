@@ -10,7 +10,7 @@ public class Winners {
         this.winners = winners;
     }
 
-    public List<String> GetWinnersName() {
+    public List<String> getWinnersName() {
         return winners.stream().map(Car::getName).collect(Collectors.toList());
     }
 }

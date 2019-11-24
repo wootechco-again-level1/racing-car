@@ -17,12 +17,6 @@ public class Car {
         this.position = 0;
     }
 
-    private void validateName(String name) {
-        if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH) {
-            throw new InvalidNameException("이름은 1~5자만 가능합니다.");
-        }
-    }
-
     public void race(NumberGenerator numberGenerator) {
         if (numberGenerator.generateNumber() >= FORWARD_CONDITION) {
             this.position++;
@@ -39,5 +33,11 @@ public class Car {
 
     public int getPosition() {
         return position;
+    }
+
+    private void validateName(String name) {
+        if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH) {
+            throw new InvalidNameException("이름은 1~5자만 가능합니다.");
+        }
     }
 }

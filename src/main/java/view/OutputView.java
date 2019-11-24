@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class OutputView {
-    private static final String DELIMITER = ",";
+    private static final String DELIMITER = ", ";
     private static final String HYPHEN = "-";
     private static final int ZERO = 0;
 
@@ -18,6 +18,12 @@ public class OutputView {
         for (OneRound round : rounds) {
             printOneRound(round);
         }
+    }
+
+    public static void printWinners(Winners winners) {
+        List<String> names = winners.getWinnersName();
+        String joinedNames = String.join(DELIMITER, names);
+        System.out.println(joinedNames + "가 최종 우승했습니다.");
     }
 
     private static void printOneRound(OneRound oneRound) {
@@ -34,11 +40,5 @@ public class OutputView {
             result.append(HYPHEN);
         }
         return result.toString();
-    }
-
-    public static void printWinners(Winners winners) {
-        List<String> names = winners.GetWinnersName();
-        String joinedNames = String.join(DELIMITER, names);
-        System.out.println(joinedNames + "가 최종 우승했습니다.");
     }
 }
