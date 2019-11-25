@@ -5,9 +5,9 @@ import util.NumberGenerator;
 public class RacingCarGame {
     private static final int ZERO = 0;
 
-    public static RoundsResult play(Cars cars, int countOfGame, NumberGenerator numberGenerator) {
+    public static RoundsResult play(Cars cars, int numberOfRound, NumberGenerator numberGenerator) {
         RoundsResult roundsResult = new RoundsResult();
-        while (countOfGame-- > ZERO) {
+        while (numberOfRound-- > ZERO) {
             OneRound oneRound = cars.playOneRound(numberGenerator);
             roundsResult.addOneRound(oneRound);
         }

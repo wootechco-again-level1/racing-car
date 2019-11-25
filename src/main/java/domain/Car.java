@@ -4,9 +4,10 @@ import exception.InvalidNameException;
 import util.NumberGenerator;
 
 public class Car {
+    private static final int STARTING_POSITION = 0;
+    private static final int FORWARD_CONDITION = 4;
     private static final int MIN_NAME_LENGTH = 1;
     private static final int MAX_NAME_LENGTH = 5;
-    private static final int FORWARD_CONDITION = 4;
 
     private final String name;
     private int position;
@@ -14,7 +15,7 @@ public class Car {
     public Car(String name) {
         validateName(name);
         this.name = name;
-        this.position = 0;
+        this.position = STARTING_POSITION;
     }
 
     public void race(NumberGenerator numberGenerator) {

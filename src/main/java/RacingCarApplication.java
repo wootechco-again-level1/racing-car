@@ -7,9 +7,9 @@ public class RacingCarApplication {
     public static void main(String[] args) {
         String nameInput = InputView.getNameInput();
         Cars cars = CarsCreator.createCars(nameInput);
-        int countOfGame = InputView.getCountOfGame();
+        int numberOfRound = InputView.getNumberOfRound();
 
-        RoundsResult roundsResult = RacingCarGame.play(cars, countOfGame, new RandomNumberGenerator());
+        RoundsResult roundsResult = RacingCarGame.play(cars, numberOfRound, new RandomNumberGenerator());
         OutputView.printRoundsResult(roundsResult);
 
         Winners winners = cars.getWinners();

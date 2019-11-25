@@ -2,7 +2,6 @@ package domain;
 
 import util.NumberGenerator;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -25,12 +24,9 @@ public class Cars {
 
     public Winners getWinners() {
         int maxPosition = getMaxPosition();
-        List<Car> winners = new ArrayList<>();
-        for (Car car : cars) {
-            if (car.isWinner(maxPosition)) {
-                winners.add(car);
-            }
-        }
+        List<Car> winners = cars.stream()
+                .filter(c -> c.isWinner(maxPosition))
+                .collect(Collectors.toList());
         return new Winners(winners);
     }
 
