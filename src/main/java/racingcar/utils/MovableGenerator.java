@@ -12,7 +12,7 @@ public class MovableGenerator {
 
     public static List<Integer> generate(Cars cars) {
         Random random = new Random();
-        final int numberOfCars = cars.numberOfCars();
+        final int numberOfCars = cars.countOfCars();
 
         return IntStream.rangeClosed(1, numberOfCars)
                 .mapToObj(i -> random.nextInt(MOVABLE_MAX_BOUND))

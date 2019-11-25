@@ -14,7 +14,7 @@ public class Cars {
     RoundResult round(List<Integer> movable) {
         List<MovedCar> movedCars = new ArrayList<>();
 
-        for (int i = 0; i < numberOfCars(); i++) {
+        for (int i = 0; i < countOfCars(); i++) {
             Car car = cars.get(i);
             car.move(movable.get(i));
             movedCars.add(new MovedCar(car));
@@ -31,7 +31,7 @@ public class Cars {
         return cars.get(index);
     }
 
-    public int numberOfCars() {
+    public int countOfCars() {
         return cars.size();
     }
 }
