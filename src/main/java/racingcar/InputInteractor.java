@@ -17,7 +17,7 @@ public class InputInteractor {
     }
 
     public RacingGame readyForGame() {
-        final Cars cars = generateCars(inputView.carNames());
+        final Cars cars = generateCars(inputView.inputCarNames());
         final int numberOfRound = roundOfNumber();
 
         return new RacingGame(cars, numberOfRound);
@@ -32,6 +32,6 @@ public class InputInteractor {
     }
 
     private int roundOfNumber() {
-        return inputView.numberOfRound();
+        return inputView.inputNumberOfRound();
     }
 }

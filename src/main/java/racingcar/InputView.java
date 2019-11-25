@@ -1,7 +1,7 @@
 package racingcar;
 
 public interface InputView {
-    String carNames();
+    String inputCarNames();
 
-    int numberOfRound();
+    int inputNumberOfRound();
 }
