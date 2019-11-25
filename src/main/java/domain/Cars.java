@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Cars {
-    private final List<Car> list;
+    private final List<Car> cars;
 
     public Cars(final List<Car> cars) {
         checkDuplicate(cars);
-        this.list = cars;
+        this.cars = cars;
     }
 
     private void checkDuplicate(final List<Car> cars) {
@@ -23,26 +23,26 @@ public class Cars {
     }
 
     public Cars move(final MoveStrategy moveStrategy) {
-        return new Cars(list.stream()
+        return new Cars(cars.stream()
                 .map(car -> car.move(moveStrategy))
                 .collect(Collectors.toList())
         );
     }
 
     public int getSize() {
-        return list.size();
+        return cars.size();
     }
 
     public Car get(final int index) {
-        return list.get(index);
+        return cars.get(index);
     }
 
     public List<Car> getCars() {
-        return list;
+        return cars;
     }
 
     @Override
     public String toString() {
-        return "Cars{" + "list=" + list + '}';
+        return "Cars{" + "list=" + cars + '}';
     }
 }
