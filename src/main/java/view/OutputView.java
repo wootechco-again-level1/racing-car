@@ -31,7 +31,7 @@ public class OutputView {
     }
 
     public static void printWinner(final Winner winner) {
-        String text = winner.findWinner().getCars().stream()
+        String text = winner.stream()
                 .map(Car::getName)
                 .collect(Collectors.joining(","));
 

@@ -23,7 +23,7 @@ public class WinnerTest {
         winner = new Winner(cars, 5);
 
         assertFalse(winner.hasNotWinner());
-        assertEquals(3, winner.findWinner().getSize());
+        assertEquals(3, winner.getSize());
     }
 
     @Test
@@ -33,7 +33,7 @@ public class WinnerTest {
         winner = new Winner(cars, 5);
 
         assertTrue(winner.hasNotWinner());
-        assertEquals(0, winner.findWinner().getSize());
+        assertEquals(0, winner.getSize());
     }
 
     private void move(final int count) {
