@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class InputInteractor {
-    private static final String CARNAME_DELIMITER = ",";
+    private static final String CAR_NAME_DELIMITER = ",";
     private final InputView inputView;
 
     public InputInteractor(InputView inputView) {
@@ -24,7 +24,7 @@ public class InputInteractor {
     }
 
     private Cars generateCars(String carNames) {
-        List<Car> cars = Stream.of(carNames.split(CARNAME_DELIMITER))
+        List<Car> cars = Stream.of(carNames.split(CAR_NAME_DELIMITER))
                 .map(Car::new)
                 .collect(Collectors.toList());
 
