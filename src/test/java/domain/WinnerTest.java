@@ -8,14 +8,12 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class WinnerTest {
-    private String name;
     private Cars cars;
     private Winner winner;
 
     @BeforeEach
     void setUp() {
-        name = "pobi, crong, mir";
-        cars = CarsGenerator.generate(name);
+        cars = CarsGenerator.generate("pobi, crong, mir");
     }
 
     @Test
