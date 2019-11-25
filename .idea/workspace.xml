@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfa6df9f-f04c-4a6b-97df-5d5bdfe327d9" name="Default Changelist" comment="feat: 사용자 입력 및 게임 시작">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Winner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Winner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/view/InputView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/InputView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/domain/WinnerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/domain/WinnerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/domain/CarTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/domain/CarTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +26,12 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
@@ -252,7 +256,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

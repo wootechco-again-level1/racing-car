@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CarTest {
     private static final String CAR_NAME = "mir";
     private static final int INIT_POSITION = 0;
+    public static final int MAX_DISTANCE = 5;
 
     private Car car;
 
@@ -55,17 +56,17 @@ public class CarTest {
     @Test
     @DisplayName("자동차가 결승점에 도달했을 경우")
     void isMaxDistance1() {
-        move(5);
+        move(MAX_DISTANCE);
 
-        assertTrue(car.isMaxDistance(5));
+        assertTrue(car.isMaxDistance(MAX_DISTANCE));
     }
 
     @Test
     @DisplayName("자동차가 결승점에 도달하지 못할 경우")
     void isMaxDistance2() {
-        move(4);
+        move(MAX_DISTANCE - 1);
 
-        assertFalse(car.isMaxDistance(5));
+        assertFalse(car.isMaxDistance(MAX_DISTANCE));
     }
 
     private void move(final int count) {

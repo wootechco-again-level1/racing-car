@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="racing-car_main" target="1.8" />
+      <module name="racing-car_test" target="1.8" />
+      <module name="study_step01-racing-car_main" target="1.8" />
+      <module name="study_step01-racing-car_test" target="1.8" />
+      <module name="wootechco-level1-again-racing-car_main" target="1.8" />
+      <module name="wootechco-level1-again-racing-car_test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
