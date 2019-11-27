@@ -4,7 +4,6 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import racingcar.controller.FixMove;
 import racingcar.controller.RandomMove;
 
 import java.util.Arrays;
@@ -25,7 +24,7 @@ class CarsTest {
     @DisplayName("전체 자동차 고정 이동")
     void fixExecuteTest() {
         Cars cars = new Cars(THREE_CARS);
-        cars.execute(new FixMove());
+        cars.execute(() -> true);
 
         List<Integer> carPositions = cars.getCars().stream()
                 .map(Car::getPosition)
@@ -53,7 +52,7 @@ class CarsTest {
     @DisplayName("전체 자동차 고정 이동 후 최대 거리")
     void maxDistanceCarsTest() {
         Cars cars = new Cars(THREE_CARS);
-        cars.execute(new FixMove());
+        cars.execute(() -> true);
 
         List<Car> actual = cars.getMaxPositionCars();
         List<Car> expected = new Cars(THREE_CARS).getCars();
@@ -77,7 +76,7 @@ class CarsTest {
     void getPositionsTest() {
         List<String> values = Arrays.asList("car1", "car2", "car3");
         Cars cars = new Cars(THREE_CARS);
-        cars.execute(new FixMove());
+        cars.execute(() -> true);
         Map<String, Integer> actual = cars.getPositions();
 
         Map<String, Integer> expected = new HashMap<>();

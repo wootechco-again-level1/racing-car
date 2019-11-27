@@ -2,7 +2,6 @@ package racingcar.domain;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import racingcar.controller.FixMove;
 
 import java.util.Map;
 
@@ -18,7 +17,7 @@ class RoundResultTest {
         before.values().forEach(value -> assertThat(value).isEqualTo(0));
 
         Cars cars = new Cars("car1, car2, car3");
-        cars.execute(new FixMove());
+        cars.execute(() -> true);
         roundResult.update(cars);
         Map<String, Integer> after = roundResult.getPositions();
 
