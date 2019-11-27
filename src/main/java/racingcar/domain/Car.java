@@ -22,7 +22,7 @@ public class Car {
     }
 
     private String validateName(String name) {
-        if (StringUtils.isEmpty(name) || StringUtils.isBlank(name)) {
+        if (StringUtils.isBlank(name)) {
             throw new CarValidateException(INVALID_NAME);
         }
 
