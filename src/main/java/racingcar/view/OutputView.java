@@ -12,12 +12,13 @@ public class OutputView {
     private static final String WINNER_PRINT_DELIMITER = ", ";
     private static final String VALUE_SYMBOL = "-";
 
+    private static StringBuilder stringBuilder = new StringBuilder();
+
     public static void printResultIntro() {
-        System.out.println("\n실행 결과");
+        System.out.println(NEXT_LINE + "실행 결과");
     }
 
     public static void printRoundResult(Map<String, Integer> positions) {
-        StringBuilder stringBuilder = new StringBuilder();
         positions.forEach((key, value) -> {
             stringBuilder.append(key);
             stringBuilder.append(KEY_VALUE_DELIMITER);
@@ -26,6 +27,7 @@ public class OutputView {
         });
 
         System.out.println(stringBuilder.toString());
+        stringBuilder.setLength(0);
     }
 
     public static void printWinners(List<String> winnerNames) {
