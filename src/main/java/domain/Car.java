@@ -1,6 +1,7 @@
 package domain;
 
 import exception.InvalidNameException;
+import org.apache.commons.lang3.StringUtils;
 import util.NumberGenerator;
 
 public class Car {
@@ -19,7 +20,8 @@ public class Car {
     }
 
     private void validateName(String name) {
-        if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH) {
+        if (name.length() < MIN_NAME_LENGTH || name.length() > MAX_NAME_LENGTH
+                || StringUtils.isBlank(name)) {
             throw new InvalidNameException("이름은 1~5자만 가능합니다.");
         }
     }
