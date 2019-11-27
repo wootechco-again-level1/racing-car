@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -46,7 +47,7 @@ class RacingCarsServiceTest {
     @Test
     void createCars() {
         NamesRequestDto requestDto = new NamesRequestDto(names);
-        service.createCars(requestDto, moveStrategy);
+        assertDoesNotThrow(() -> service.createCars(requestDto, moveStrategy));
     }
 
     @Test
@@ -60,7 +61,7 @@ class RacingCarsServiceTest {
     @Test
     void createRacingCars() {
         RacingCountRequestDto requestDto = new RacingCountRequestDto(5);
-        service.createRacingCars(requestDto);
+        assertDoesNotThrow(() -> service.createRacingCars(requestDto));
     }
 
     @Test
