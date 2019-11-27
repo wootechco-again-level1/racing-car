@@ -31,10 +31,9 @@ public class Cars {
     }
 
     private int getMaxPosition() {
-        int maxPosition = 0;
-        for (Car car : cars) {
-            maxPosition = Math.max(car.getPosition(), maxPosition);
-        }
-        return maxPosition;
+        return cars.stream()
+                .map(Car::getPosition)
+                .max(Integer::compare)
+                .orElse(-1);
     }
 }

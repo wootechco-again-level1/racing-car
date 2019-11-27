@@ -2,7 +2,9 @@ package domain;
 
 import exception.InvalidNameException;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
 
 public class CarsCreator {
     private static final String DELIMITER = ",";
@@ -18,8 +20,11 @@ public class CarsCreator {
     }
 
     private static void checkDuplication(String[] names) {
-        Set<String> uniqueNames = new HashSet<>(Arrays.asList(names));
-        if (uniqueNames.size() != names.length) {
+        long count = Stream.of(names)
+                .distinct()
+                .count();
+
+        if (count != names.length) {
             throw new InvalidNameException("중복된 이름이 존재합니다.");
         }
     }
