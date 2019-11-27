@@ -5,6 +5,9 @@ import racingcar.domain.Round;
 import racingcar.domain.RoundResult;
 import racingcar.domain.Winners;
 
+import java.util.List;
+import java.util.Map;
+
 public class RacingGame {
 
     private final Cars cars;
@@ -27,11 +30,11 @@ public class RacingGame {
         return !round.isFinished();
     }
 
-    public RoundResult getRoundResult() {
-        return roundResult;
+    public Map<String, Integer> getPositions() {
+        return roundResult.getPositions();
     }
 
-    public Winners getWinners() {
-        return new Winners(cars);
+    public List<String> getWinners() {
+        return new Winners(cars).getWinnerNames();
     }
 }

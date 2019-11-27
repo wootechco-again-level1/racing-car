@@ -1,8 +1,6 @@
 package racingcar;
 
 import racingcar.controller.RacingGame;
-import racingcar.domain.RoundResult;
-import racingcar.domain.Winners;
 import racingcar.view.InputView;
 import racingcar.view.OutputView;
 
@@ -13,11 +11,9 @@ public class Application {
         OutputView.printResultIntro();
         while (racingGame.remainRound()) {
             racingGame.race();
-            RoundResult roundResult = racingGame.getRoundResult();
-            OutputView.printRoundResult(roundResult.getPositions());
+            OutputView.printRoundResult(racingGame.getPositions());
         }
 
-        Winners winners = racingGame.getWinners();
-        OutputView.printWinners(winners.getWinnerNames());
+        OutputView.printWinners(racingGame.getWinners());
     }
 }
