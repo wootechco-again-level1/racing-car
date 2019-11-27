@@ -1,7 +1,5 @@
 package racingcar.controller;
 
-import java.util.Random;
-
 public class RandomMove implements MoveStrategy {
 
     private static final int RANDOM_NUMBER_RANGE = 10;
@@ -9,7 +7,6 @@ public class RandomMove implements MoveStrategy {
 
     @Override
     public boolean isMove() {
-        int randomNumber = new Random().nextInt(RANDOM_NUMBER_RANGE);
-        return randomNumber >= MOVE_CONDITION;
+        return (int) (Math.random() * RANDOM_NUMBER_RANGE) >= MOVE_CONDITION;
     }
 }

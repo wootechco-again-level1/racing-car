@@ -14,8 +14,7 @@ class WinnersTest {
     @DisplayName("우승자 잘 구하는지")
     void winnerTest() {
         RacingGame racingGame = new RacingGame("car1, car2, car3", 5);
-        Winners winners = racingGame.getWinners();
-        List<String> actual = winners.getWinnerNames();
+        List<String> actual = racingGame.getWinners();
 
         List<String> expected = Arrays.asList("car1", "car2", "car3");
 
