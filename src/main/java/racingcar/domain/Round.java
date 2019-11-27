@@ -17,7 +17,7 @@ public class Round {
     }
 
     public boolean isFinished() {
-        return round == totalRound;
+        return round > totalRound;
     }
 
     public int getRound() {
