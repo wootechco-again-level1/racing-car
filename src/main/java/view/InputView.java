@@ -23,6 +23,16 @@ public class InputView {
         }
     }
 
+    private static String validateNameInput(String nameInput) {
+        if (!nameInput.matches(NAME_REGEX)) {
+            throw new InvalidNameException("이름으로는 한글, 영어만 사용 가능합니다.");
+        }
+        if (nameInput.split(DELIMITER).length < MIN_NUMBER_OF_CAR) {
+            throw new InvalidNameException("둘 이상의 이름을 입력하세요.");
+        }
+        return nameInput;
+    }
+
     public static int getNumberOfRound() {
         System.out.println("시도할 회수는 몇회인가요?");
         try {
@@ -34,16 +44,6 @@ public class InputView {
             System.err.println(e.getMessage());
             return getNumberOfRound();
         }
-    }
-
-    private static String validateNameInput(String nameInput) {
-        if (!nameInput.matches(NAME_REGEX)) {
-            throw new InvalidNameException("이름으로는 한글, 영어만 사용 가능합니다.");
-        }
-        if (nameInput.split(DELIMITER).length < MIN_NUMBER_OF_CAR) {
-            throw new InvalidNameException("둘 이상의 이름을 입력하세요.");
-        }
-        return nameInput;
     }
 
     private static int validateNumberOfRoundInput(int numberOfRound) {
