@@ -2,6 +2,7 @@ package racingcar.service.converter;
 
 import racingcar.domain.Car;
 import racingcar.domain.Cars;
+import racingcar.domain.Winners;
 import racingcar.vo.RaceProcessResponse;
 import racingcar.vo.RaceWinnerResponse;
 
@@ -36,7 +37,7 @@ public class ResponseConverter {
      * @param winner
      * @return
      */
-    public static RaceWinnerResponse toRaceWinner(final Cars winner) {
+    public static RaceWinnerResponse toRaceWinner(final Winners winner) {
         List<String> dto = winner.stream()
             .map(Car::getName)
             .collect(Collectors.toList());

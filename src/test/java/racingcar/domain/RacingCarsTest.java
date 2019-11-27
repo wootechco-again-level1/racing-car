@@ -62,11 +62,12 @@ class RacingCarsTest {
         Car loser = new Car("car2", () -> false);
         Car winner2 = new Car("car3", () -> true);
         Cars cars = Cars.of(winner1, loser, winner2);
+        Cars win = Cars.of(winner1, winner2);
 
         RacingCars racingCars = new RacingCars(cars, raceCount);
         IntStream.range(0, DEFAULT_RACE_COUNT).forEach(index -> racingCars.race());
 
-        Cars winners = racingCars.generateFinalWinner();
-        assertEquals(winners, Cars.of(winner1, winner2));
+        Winners winners = racingCars.generateFinalWinner();
+        assertEquals(winners, new Winners(win));
     }
 }

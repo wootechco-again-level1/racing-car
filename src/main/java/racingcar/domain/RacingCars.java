@@ -48,9 +48,9 @@ public class RacingCars {
      *
      * @return
      */
-    public Cars generateFinalWinner() {
+    public Winners generateFinalWinner() {
         validateRaceFinal();
-        return cars.generateWinner();
+        return new Winners(cars);
     }
 
     private void validateRaceFinal() {

@@ -65,16 +65,4 @@ class CarsTest {
             assertEquals(car.getForwardCount(), 1);
         });
     }
-
-    @Test
-    void generateWinners() {
-        Car winner1 = new Car("car1", () -> true);
-        Car loser = new Car("car2", () -> false);
-        Car winner2 = new Car("car3", () -> true);
-        Cars cars = Cars.of(winner1, loser, winner2);
-        cars.race();
-
-        Cars winners = cars.generateWinner();
-        assertEquals(winners, Cars.of(winner1, winner2));
-    }
 }

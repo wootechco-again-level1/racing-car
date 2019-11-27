@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import racingcar.exception.IllegalCarNameException;
-import racingcar.exception.WinnerNotFoundException;
 import strategy.MoveStrategy;
 
 import java.util.Arrays;
@@ -53,21 +52,6 @@ public class Cars {
      */
     public void race() {
         cars.forEach(Car::race);
-    }
-
-    /**
-     * 현재 가장 많이 이동한 자동차들을 리턴.
-     *
-     * @return
-     */
-    public Cars generateWinner() {
-        int winnerCount = cars.stream()
-            .mapToInt(Car::getForwardCount)
-            .max().orElseThrow(WinnerNotFoundException::new);
-        Car[] winners = cars.stream()
-            .filter(car -> car.isSameCount(winnerCount))
-            .toArray(Car[]::new);
-        return Cars.of(winners);
     }
 
     public int size() {
