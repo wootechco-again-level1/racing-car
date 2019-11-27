@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cfa6df9f-f04c-4a6b-97df-5d5bdfe327d9" name="Default Changelist" comment="feat: 사용자 입력 및 게임 시작">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Cars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Cars.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/Winner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/Winner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/view/OutputView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/view/OutputView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/domain/WinnerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/domain/WinnerTest.java" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="203" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
+  </component>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="$PROJECT_DIR$/.idea" />
+      </set>
+    </option>
+  </component>
+  <component name="JsbtTreeLayoutManager">
+    <layout place="tools.popupGrunt">
+      <scroll-view-position x="0" y="0" />
+    </layout>
+  </component>
+  <component name="ProjectId" id="1TxWajiHMUcoDOSEy6b0WWW9Fv4" />
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.20125" />
+    <property name="project.structure.side.proportion" value="0.2777778" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="application" />
+      <recent name="view" />
+      <recent name="domain" />
+      <recent name="" />
+      <recent name="domain.exception" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="domain" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.All in racing-car.test">
+    <configuration name="CarsApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CarsApplication" />
+      <module name="racing-car.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in racing-car.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="racing-car.test" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WinnerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="racing-car.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="domain" />
+      <option name="MAIN_CLASS_NAME" value="domain.WinnerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WinnerTest.findWinner1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="racing-car.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="domain" />
+      <option name="MAIN_CLASS_NAME" value="domain.WinnerTest" />
+      <option name="METHOD_NAME" value="findWinner1" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="domain in racing-car.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="racing-car.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="domain.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="domain" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.All in racing-car.test" />
+        <item itemvalue="JUnit.WinnerTest.findWinner1" />
+        <item itemvalue="JUnit.WinnerTest" />
+        <item itemvalue="Application.CarsApplication" />
+        <item itemvalue="JUnit.domain in racing-car.test" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cfa6df9f-f04c-4a6b-97df-5d5bdfe327d9" name="Default Changelist" comment="" />
+      <changelist id="" name="feat: CarsGenerator를 통한 중복 제거" comment="" />
+      <changelist id="" name="feat: CarsGenerator를 통한 중복 제거" comment="" />
+      <changelist id="" name="feat: 자동차 이름 중복 확인 및 길이 제한 추가" comment="" />
+      <created>1574402292198</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574402292198</updated>
+      <workItem from="1574402297420" duration="15416000" />
+    </task>
+    <task id="LOCAL-00001" summary="feat: 자동차 이름 중복 확인 및 길이 제한 추가">
+      <created>1574525468440</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1574525468440</updated>
+    </task>
+    <task id="LOCAL-00002" summary="feat: 자동차 이름 중복 확인 및 길이 제한 추가">
+      <created>1574528781728</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1574528781728</updated>
+    </task>
+    <task id="LOCAL-00003" summary="feat: CarsGenerator를 통한 중복 제거">
+      <created>1574529484343</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1574529484343</updated>
+    </task>
+    <task id="LOCAL-00004" summary="feat: CarsGenerator를 통한 중복 제거">
+      <created>1574529533541</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1574529533541</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: 자동차 이름 중복 확인 및 길이 제한 추가">
+      <created>1574533973386</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1574533973386</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: CarsGenerator를 통한 중복 제거">
+      <created>1574533983373</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1574533983373</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: CarsGenerator를 통한 생성">
+      <created>1574534146826</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1574534146826</updated>
+    </task>
+    <task id="LOCAL-00008" summary="feat: 우승자 생성을 위한 클래스 작성">
+      <created>1574534227880</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1574534227880</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feat: 사용자 입력 및 게임 시작">
+      <created>1574534273248</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1574534273248</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: 자동차 이름 중복 확인 및 길이 제한 추가" />
+    <MESSAGE value="feat: CarsGenerator를 통한 중복 제거" />
+    <MESSAGE value="feat: CarsGenerator를 통한 생성" />
+    <MESSAGE value="feat: 우승자 생성을 위한 클래스 작성" />
+    <MESSAGE value="feat: 사용자 입력 및 게임 시작" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 사용자 입력 및 게임 시작" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/domain/WinnerTest.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/racing_car$All_in_racing_car_test.ic" NAME="All in racing-car.test Coverage Results" MODIFIED="1574534951330" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
