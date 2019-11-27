@@ -4,8 +4,10 @@ import racingcar.exception.IllegalCarNameException;
 import strategy.MoveStrategy;
 
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
+import java.util.Spliterator;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -17,7 +19,7 @@ import java.util.stream.Stream;
  * @version 1.0
  * @date 2019-11-21
  */
-public class Cars {
+public class Cars implements Iterable<Car> {
     private static final String NAME_DUPLICATE_EXCEPTION_MESSAGE = "중복되는 이름은 사용할 수 없습니다.";
 
     private final List<Car> cars;
@@ -58,8 +60,18 @@ public class Cars {
         return cars.size();
     }
 
+    @Override
+    public Iterator<Car> iterator() {
+        return cars.iterator();
+    }
+
     public void forEach(Consumer<? super Car> action) {
         cars.forEach(action);
+    }
+
+    @Override
+    public Spliterator<Car> spliterator() {
+        return cars.spliterator();
     }
 
     public Stream<Car> stream() {

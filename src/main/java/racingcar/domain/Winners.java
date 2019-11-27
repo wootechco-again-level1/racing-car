@@ -2,7 +2,10 @@ package racingcar.domain;
 
 import racingcar.exception.WinnerNotFoundException;
 
+import java.util.Iterator;
 import java.util.Objects;
+import java.util.Spliterator;
+import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 /**
@@ -12,7 +15,7 @@ import java.util.stream.Stream;
  * @version 1.0
  * @date 2019-11-27
  */
-public class Winners {
+public class Winners implements Iterable<Car> {
     private final int winnerCount;
     private final Cars cars;
 
@@ -35,6 +38,21 @@ public class Winners {
 
     public Stream<Car> stream() {
         return cars.stream();
+    }
+
+    @Override
+    public Iterator<Car> iterator() {
+        return cars.iterator();
+    }
+
+    @Override
+    public void forEach(Consumer<? super Car> action) {
+        cars.forEach(action);
+    }
+
+    @Override
+    public Spliterator<Car> spliterator() {
+        return cars.spliterator();
     }
 
     @Override
