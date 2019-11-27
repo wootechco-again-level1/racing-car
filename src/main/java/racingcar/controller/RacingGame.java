@@ -23,8 +23,8 @@ public class RacingGame {
         round.next();
     }
 
-    public boolean isFinished() {
-        return round.isFinished();
+    public boolean remainRound() {
+        return !round.isFinished();
     }
 
     public RoundResult getRoundResult() {

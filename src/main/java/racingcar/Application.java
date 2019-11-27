@@ -11,7 +11,7 @@ public class Application {
         RacingGame racingGame = new RacingGame(InputView.inputNames(), InputView.inputRound());
 
         OutputView.printResultIntro();
-        while (!racingGame.isFinished()) {
+        while (racingGame.remainRound()) {
             racingGame.race();
             RoundResult roundResult = racingGame.getRoundResult();
             OutputView.printRoundResult(roundResult.getPositions());
