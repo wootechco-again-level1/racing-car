@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import racingcar.controller.MoveStrategy;
-import racingcar.exception.PositionCompareException;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -47,7 +46,7 @@ public class Cars {
         return cars.stream()
                 .map(Car::getPosition)
                 .max(Integer::compare)
-                .orElseThrow(PositionCompareException::new);
+                .orElse(-1);
     }
 
     public Map<String, Integer> getPositions() {
