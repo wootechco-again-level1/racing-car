@@ -2,7 +2,6 @@ package domain;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import util.NumberGenerator;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,8 +15,7 @@ class RacingCarGameTest {
     void playTest() {
         Cars cars = new Cars(Arrays.asList(new Car("cony"), new Car("ike"), new Car("pobi")));
         int numberOfRound = 5;
-        NumberGenerator sevenGenerator = () -> 7;
-        List<OneRound> rounds = RacingCarGame.play(cars, numberOfRound, sevenGenerator).getRounds();
+        List<OneRound> rounds = RacingCarGame.play(cars, numberOfRound, () -> 7).getRounds();
         Map<String, Integer> finalRoundStatus = rounds.get(4).getCarStatuses(); // numberOfRound = 5, finalRoundIndex = 4
 
         for (String name : finalRoundStatus.keySet()) {

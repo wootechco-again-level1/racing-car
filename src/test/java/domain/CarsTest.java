@@ -3,7 +3,6 @@ package domain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import util.NumberGenerator;
 
 import java.util.Arrays;
 import java.util.List;
@@ -23,8 +22,7 @@ class CarsTest {
     @Test
     @DisplayName("게임 한 라운드를 잘 진행하는지 확인한다.")
     void playOneRoundTest() {
-        NumberGenerator fiveGenerator = () -> 5;
-        OneRound oneRound = cars.playOneRound(fiveGenerator);
+        OneRound oneRound = cars.playOneRound(() -> 5);
         Map<String, Integer> carStatuses = oneRound.getCarStatuses();
 
         for (String name : carStatuses.keySet()) {
@@ -35,8 +33,7 @@ class CarsTest {
     @Test
     @DisplayName("우승자를 잘 선정하는지 확인한다.")
     void getWinnersTest() {
-        NumberGenerator sixGenerator = () -> 6;
-        cars.playOneRound(sixGenerator);
+        cars.playOneRound(() -> 6);
         Winners winners = cars.getWinners();
 
         assertThat(String.join(", ", winners.getWinnersName())).contains("cony, ike, pobi");

@@ -20,6 +20,7 @@ class CarsCreatorTest {
     @DisplayName("중복된 이름에 예외를 던지는지 확인한다.")
     void createCarsTest_Fail() {
         assertThrows(InvalidNameException.class,
-                () -> CarsCreator.createCars("cony,cony,ike"));
+                () -> CarsCreator.createCars("cony,cony,ike")
+        );
     }
 }
