@@ -2,10 +2,14 @@ package view;
 
 import exception.InvalidNameException;
 import exception.InvalidNumberOfRoundException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Scanner;
 
 public class InputView {
+    private static final Logger logger = LoggerFactory.getLogger(InputView.class);
+
     private static final int MIN_NUMBER_OF_ROUND = 1;
     private static final int MIN_NUMBER_OF_CAR = 2;
     private static final String DELIMITER = ",";
@@ -19,6 +23,7 @@ public class InputView {
             return validateNameInput(scanner.nextLine());
         } catch (InvalidNameException e) {
             System.err.println(e.getMessage());
+            logger.error("error: {}", e.getMessage());
             return getNameInput();
         }
     }
@@ -39,9 +44,11 @@ public class InputView {
             return validateNumberOfRoundInput(Integer.parseInt(scanner.nextLine()));
         } catch (NumberFormatException e) {
             System.err.println("숫자만 입력 가능합니다.");
+            logger.error("error: {}", e.getMessage());
             return getNumberOfRound();
         } catch (InvalidNumberOfRoundException e) {
             System.err.println(e.getMessage());
+            logger.error("error: {}", e.getMessage());
             return getNumberOfRound();
         }
     }
