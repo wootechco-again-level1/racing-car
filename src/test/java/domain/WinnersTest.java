@@ -12,7 +12,9 @@ class WinnersTest {
     @Test
     @DisplayName("우승자 이름을 잘 리턴하는지 확인한다.")
     void getWinnersNameTest() {
-        Winners winners = new Winners(Arrays.asList(new Car("cony"), new Car("ike"), new Car("pobi")));
+        Cars cars = new Cars(Arrays.asList(new Car("cony"), new Car("ike"), new Car("pobi")));
+        cars.playOneRound(() -> 6);
+        Winners winners = new Winners(cars);
         List<String> winnersName = winners.getWinnersName();
 
         assertThat(winnersName).isEqualTo(Arrays.asList("cony", "ike", "pobi"));

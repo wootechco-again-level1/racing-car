@@ -2,6 +2,7 @@ package domain;
 
 import util.NumberGenerator;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -22,18 +23,14 @@ public class Cars {
         return new OneRound(carStatuses);
     }
 
-    public Winners getWinners() {
-        int maxPosition = getMaxPosition();
-        List<Car> winners = cars.stream()
-                .filter(c -> c.isWinner(maxPosition))
-                .collect(Collectors.toList());
-        return new Winners(winners);
+    public List<Car> getCars() {
+        return Collections.unmodifiableList(cars);
     }
 
-    private int getMaxPosition() {
+    public int getMaxPosition() {
         return cars.stream()
                 .map(Car::getPosition)
                 .max(Integer::compare)
-                .orElse(-1);
+                .get();
     }
 }

@@ -12,7 +12,7 @@ public class RacingCarApplication {
         RoundsResult roundsResult = RacingCarGame.play(cars, numberOfRound, new RandomNumberGenerator());
         OutputView.printRoundsResult(roundsResult);
 
-        Winners winners = cars.getWinners();
+        Winners winners = new Winners(cars);
         OutputView.printWinners(winners);
     }
 }

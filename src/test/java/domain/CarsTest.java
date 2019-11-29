@@ -31,11 +31,11 @@ class CarsTest {
     }
 
     @Test
-    @DisplayName("우승자를 잘 선정하는지 확인한다.")
-    void getWinnersTest() {
-        cars.playOneRound(() -> 6);
-        Winners winners = cars.getWinners();
+    @DisplayName("최대 위치를 잘 리턴하는지 확인한다.")
+    void getMaxPositionTest() {
+        cars.playOneRound(() -> 7);
+        cars.playOneRound(() -> 8);
 
-        assertThat(String.join(", ", winners.getWinnersName())).contains("cony, ike, pobi");
+        assertThat(cars.getMaxPosition()).isEqualTo(2);
     }
 }
