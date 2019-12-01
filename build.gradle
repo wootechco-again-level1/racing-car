@@ -1,0 +1,21 @@
+
+plugins {
+    id 'java'
+}
+
+group 'wootechco-level1-again'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+    implementation 'org.apache.commons:commons-lang3:3.6'
+
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: '5.4.2'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.11.1'
+}
